@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @link          https://github.com/plenta/
  */
 
-namespace Plenta\ContaoJobsBasic\ContaoManager;
+namespace Plenta\ContaoTestimonialsBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;

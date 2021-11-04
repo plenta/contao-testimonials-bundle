@@ -1,0 +1,3 @@
+services:
+    Plenta\ContaoTestimonialsBundle\EventListener\Contao\Dca\TlTestimonialsListener
+        public: true

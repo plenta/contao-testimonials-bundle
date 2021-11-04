@@ -1,7 +1,7 @@
 {
   "name": "plenta/contao-testimonials-bundle",
   "type": "contao-bundle",
-  "description": "Testimonial for Contao",
+  "description": "Testimonials for Contao",
   "license": "LGPL-3.0-or-later",
   "authors": [
     {
