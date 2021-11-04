@@ -3,7 +3,7 @@
 $date = date('Y');
 
 $header = <<<EOF
-Plenta Jobs Basic Bundle for Contao Open Source CMS
+Testimonials for Contao Open Source CMS
 
 @copyright     Copyright (c) $date, Plenta.io
 @author        Plenta.io <https://plenta.io>
