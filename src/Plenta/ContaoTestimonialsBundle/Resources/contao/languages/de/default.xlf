@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="CTE.testimonial_content_element.0">
+                <source>Testimonial</source>
+                <target>Testimonial</target>
+            </trans-unit>
+            <trans-unit id="CTE.testimonial_content_element.1">
+                <source>...</source>
+                <target>...</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

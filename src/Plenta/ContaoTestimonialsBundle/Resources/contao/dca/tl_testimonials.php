@@ -70,7 +70,7 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
 
     // Palettes
     'palettes' => [
-        'default' => '{testimonial_legend},name,company,department,testimonial;{expert_legend:hide},cssClass;{publish_legend},published',
+        'default' => '{testimonial_legend},name,company,department,testimonial;{publish_legend},published',
     ],
 
     // Fields
@@ -111,12 +111,6 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'inputType' => 'textarea',
             'eval' => ['rte' => 'tinyMCE', 'tl_class' => 'clr'],
             'sql' => 'text NULL',
-        ],
-        'cssClass' => [
-            'exclude' => true,
-            'inputType' => 'text',
-            'eval' => ['tl_class' => 'w50'],
-            'sql' => "varchar(255) NOT NULL default ''",
         ],
         'published' => [
             'exclude' => true,

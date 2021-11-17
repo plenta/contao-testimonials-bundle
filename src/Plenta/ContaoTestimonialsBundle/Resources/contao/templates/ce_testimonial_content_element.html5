@@ -1,0 +1,9 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+    <?= $this->name; ?>
+    <?= $this->company; ?>
+    <?= $this->department; ?>
+    <?= $this->testimonial; ?>
+    <?= $this->cssClass; ?>
+<?php $this->endblock(); ?>

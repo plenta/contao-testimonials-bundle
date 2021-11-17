@@ -1,0 +1,9 @@
+services:
+    Plenta\ContaoTestimonialsBundle\Controller\ContentElement\TestimonialContentElementController:
+        arguments:
+            - '@database_connection'
+        tags:
+            -   name: contao.content_element
+                category: texts
+                template: ce_testimonial
+                renderer: forward
