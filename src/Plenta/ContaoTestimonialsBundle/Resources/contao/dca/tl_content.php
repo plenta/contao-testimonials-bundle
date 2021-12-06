@@ -6,7 +6,7 @@
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['testimonial_content_element'] = '
     {type_legend},type;
-    {testimonial__legend),testimonial_source,testimonial_archive,testimonialId;
+    {testimonial_legend},testimonial_source,testimonial_archive,testimonialId;
     {protected_legend:hide},protected;
     {expert_legend:hide},guests,cssID;
     {invisible_legend:hide},invisible,start,stop
