@@ -10,6 +10,12 @@
                 <source>...</source>
                 <target>...</target>
             </trans-unit>
+            <trans-unit id="TESTIMONIAL.random">
+                <target>zufällig</target>
+            </trans-unit>
+            <trans-unit id="TESTIMONIAL.single">
+                <target>einzeln</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

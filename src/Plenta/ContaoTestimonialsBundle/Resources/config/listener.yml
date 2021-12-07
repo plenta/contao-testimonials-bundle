@@ -1,3 +1,8 @@
 services:
-    Plenta\ContaoTestimonialsBundle\EventListener\Contao\Dca\TlTestimonialsListener
+    Plenta\ContaoTestimonialsBundle\EventListener\Contao\Dca\TlTestimonialsListener:
         public: true
+
+    Plenta\ContaoTestimonialsBundle\EventListener\DataContainer\PaletteManipulatorCallback:
+        public: true
+        arguments:
+            - '@request_stack'

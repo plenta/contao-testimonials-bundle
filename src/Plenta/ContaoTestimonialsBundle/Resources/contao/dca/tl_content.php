@@ -1,8 +1,16 @@
 <?php
 
+declare(strict_types=1);
 
+/**
+ * Testimonials for Contao Open Source CMS
+ *
+ * @copyright     Copyright (c) 2021, Plenta.io
+ * @author        Plenta.io <https://plenta.io>
+ * @link          https://github.com/plenta/
+ */
 
-
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'testimonial_source';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['testimonial_content_element'] = '
     {type_legend},type;
@@ -15,8 +23,9 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['testimonial_content_element'] = '
 $GLOBALS['TL_DCA']['tl_content']['fields']['testimonial_source'] = [
     'exclude' => true,
     'inputType' => 'radio',
-    //'options_callback' => array('tl_news', 'getSourceOptions'),
-    //'reference' => &$GLOBALS['TL_LANG']['tl_news'],
+    'default' => 'random',
+    'options' => ['random', 'single'],
+    'reference' => &$GLOBALS['TL_LANG']['TESTIMONIAL'],
     'eval' => ['submitOnChange' => true],
     'sql' => "varchar(12) NOT NULL default 'default'",
 ];
