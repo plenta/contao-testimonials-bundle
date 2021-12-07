@@ -13,7 +13,7 @@ declare(strict_types=1);
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'testimonial_source';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['testimonial_content_element'] = '
-    {type_legend},type;
+    {type_legend},type,headline;
     {testimonial_legend},testimonial_source,testimonial_archive,testimonialId;
     {protected_legend:hide},protected;
     {expert_legend:hide},guests,cssID;

@@ -5,10 +5,18 @@
   "license": "LGPL-3.0-or-later",
   "authors": [
     {
+      "name": "Christian Barkowsky",
+      "homepage": "https://plenta.io"
+    },
+    {
       "name": "Plenta.io",
       "homepage": "https://plenta.io"
     }
   ],
+  "funding": [{
+    "type": "github",
+    "url": "https://github.com/christianbarkowsky"
+  }],
   "require": {
     "php": "^7.4 || ^8.0",
     "ext-json": "*",

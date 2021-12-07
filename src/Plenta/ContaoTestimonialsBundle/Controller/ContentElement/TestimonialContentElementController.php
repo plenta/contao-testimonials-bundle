@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace Plenta\ContaoTestimonialsBundle\Controller\ContentElement;
 
-use Contao\ContentModel;
-use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
-use Contao\CoreBundle\ServiceAnnotation\ContentElement;
 use Contao\Template;
+use Contao\ContentModel;
+use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Doctrine\DBAL\Connection;
+use Contao\CoreBundle\ServiceAnnotation\ContentElement;
+use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 
 /**
 * @ContentElement(category="texts")
@@ -34,7 +34,11 @@ class TestimonialContentElementController extends AbstractContentElementControll
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
     {
-        $testimonial = $this->getRandomTestimonialByArchive((int) $model->testimonial_archive);
+        if ('single' === (string) $model->testimonial_source) {
+            $testimonial = $this->getTestimonialById((int) $model->testimonialId);
+        } else {
+            $testimonial = $this->getRandomTestimonialByArchive((int) $model->testimonial_archive);
+        }
 
         if (null !== $testimonial) {
             $template->name = $testimonial['name'];
@@ -48,13 +52,32 @@ class TestimonialContentElementController extends AbstractContentElementControll
 
     protected function getRandomTestimonialByArchive(int $pid): ?array
     {
-        $records = $this->connection->fetchAllAssociative(
+        $testimonial = $this->connection->fetchAllAssociative(
             'SELECT name, company, department, testimonial FROM tl_testimonials WHERE pid=? ORDER BY RAND() LIMIT 1',
             [$pid]
         );
 
-        if (is_array($records)) {
-            return $records[0];
+        if (is_array($testimonial)) {
+            return $testimonial[0];
+        }
+
+        return null;
+    }
+
+    protected function getTestimonialById(int $id): ?array
+    {
+        $testimonial = $this->connection
+            ->createQueryBuilder()
+            ->select('name, company, department, testimonial')
+            ->from('tl_testimonials')
+            ->where('id=:id')
+            ->setParameter('id', $id)
+            ->execute()
+            ->fetch()
+            ;
+
+        if (false !== $testimonial) {
+            return $testimonial;
         }
 
         return null;
