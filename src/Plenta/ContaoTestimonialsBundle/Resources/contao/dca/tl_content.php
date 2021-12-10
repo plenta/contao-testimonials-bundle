@@ -10,8 +10,6 @@ declare(strict_types=1);
  * @link          https://github.com/plenta/
  */
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'testimonial_source';
-
 $GLOBALS['TL_DCA']['tl_content']['palettes']['testimonial_content_element'] = '
     {type_legend},type,headline;
     {testimonial_legend},testimonial_source,testimonial_archive,testimonialId;
