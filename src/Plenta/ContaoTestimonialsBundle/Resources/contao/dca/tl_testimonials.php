@@ -10,8 +10,6 @@ declare(strict_types=1);
  * @link          https://github.com/plenta/
  */
 
-use Plenta\ContaoTestimonialsBundle\EventListener\Contao\Dca\TlTestimonialsListener;
-
 $GLOBALS['TL_DCA']['tl_testimonials'] = [
     'config' => [
         'dataContainer' => 'Table',
@@ -29,9 +27,9 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
     'list' => [
         'sorting' => [
             'mode' => 4,
-            'fields' => ['name'],
+            'fields' => ['identifier'],
             'headerFields' => ['title', 'tstamp'],
-            'child_record_callback' => [TlTestimonialsListener::class, 'listTestimonials'],
+            'child_record_callback' => ['plenta.testimonials.listener.data_container', 'listTestimonials'],
             'child_record_class' => 'no_padding',
         ],
         'global_operations' => [

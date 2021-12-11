@@ -7,8 +7,8 @@
                 <target>Testimonial</target>
             </trans-unit>
             <trans-unit id="CTE.testimonial_content_element.1">
-                <source>...</source>
-                <target>...</target>
+                <source>Testimonial</source>
+                <target>Testimonial</target>
             </trans-unit>
             <trans-unit id="TESTIMONIAL.random">
                 <target>zufällig</target>

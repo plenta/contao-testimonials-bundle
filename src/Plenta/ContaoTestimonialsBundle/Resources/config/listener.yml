@@ -1,14 +1,11 @@
 services:
-    Plenta\ContaoTestimonialsBundle\EventListener\Contao\Dca\TlTestimonialsListener:
-        public: true
-
     Plenta\ContaoTestimonialsBundle\EventListener\DataContainer\PaletteManipulatorCallback:
         public: true
         arguments:
             - '@request_stack'
 
     plenta.testimonials.listener.data_container:
-        class: Plenta\ContaoTestimonialsBundle\EventListener\DataContainerListener
+        class: Plenta\ContaoTestimonialsBundle\EventListener\DataContainer\DataContainerListener
         public: true
         arguments:
             - "@database_connection"

@@ -40,7 +40,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['testimonial_archive'] = [
 $GLOBALS['TL_DCA']['tl_content']['fields']['testimonialId'] = [
     'exclude' => true,
     'inputType' => 'select',
-    //'foreignKey' => 'tl_testimonials.name',
     'options_callback' => ['plenta.testimonials.listener.data_container', 'onTestimonialsOptionsCallback'],
     'eval' => ['chosen' => true, 'mandatory' => false, 'tl_class' => 'w50'],
     'sql' => "int(10) unsigned NOT NULL default 0",
