@@ -1,8 +1,21 @@
 <?php $this->extend('block_searchable'); ?>
 
 <?php $this->block('content'); ?>
+    <?php if (!$this->addBefore): ?>
     <div class="testimonial"><?= $this->testimonial ?></div>
     <div class="name"><?= $this->name ?></div>
     <div class="department"><?= $this->department ?></div>
     <div class="company"><?= $this->company ?></div>
+    <?php endif; ?>
+
+    <?php if ($this->addImage): ?>
+        <?php $this->insert('image', $this->arrData); ?>
+    <?php endif; ?>
+
+    <?php if ($this->addBefore): ?>
+    <div class="testimonial"><?= $this->testimonial ?></div>
+    <div class="name"><?= $this->name ?></div>
+    <div class="department"><?= $this->department ?></div>
+    <div class="company"><?= $this->company ?></div>
+    <?php endif; ?>
 <?php $this->endblock(); ?>

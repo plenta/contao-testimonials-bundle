@@ -65,7 +65,12 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
     ],
 
     'palettes' => [
-        'default' => '{testimonial_legend},identifier,name,company,department,testimonial;{publish_legend},published',
+        '__selector__' => ['addImage'],
+        'default' => '{testimonial_legend},identifier,name,company,department,testimonial;{image_legend},addImage;{publish_legend},published',
+    ],
+
+    'subpalettes' => [
+        'addImage' => 'singleSRC',
     ],
 
     'fields' => [
@@ -113,6 +118,24 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'inputType' => 'textarea',
             'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'tl_class' => 'clr'],
             'sql' => 'text NULL',
+        ],
+        'addImage' => [
+            'exclude' => true,
+            'inputType' => 'checkbox',
+            'eval' => ['submitOnChange' => true],
+            'sql' => "char(1) NOT NULL default ''"
+        ],
+        'singleSRC' => [
+            'exclude' => true,
+            'inputType' => 'fileTree',
+            'eval' => [
+                'filesOnly' => true,
+                'fieldType' => 'radio',
+                'mandatory' => true,
+                'tl_class' => 'clr',
+                'extensions' => Contao\Config::get('validImageTypes'),
+            ],
+            'sql' => "binary(16) NULL",
         ],
         'published' => [
             'exclude' => true,

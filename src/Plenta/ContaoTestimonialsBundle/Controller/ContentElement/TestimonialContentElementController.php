@@ -12,7 +12,11 @@ declare(strict_types=1);
 
 namespace Plenta\ContaoTestimonialsBundle\Controller\ContentElement;
 
+
+use Contao\System;
 use Contao\Template;
+use Contao\Controller;
+use Contao\FilesModel;
 use Contao\ContentModel;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,13 +51,33 @@ class TestimonialContentElementController extends AbstractContentElementControll
             $template->testimonial = $testimonial['testimonial'];
         }
 
+        $template->addImage = false;
+
+        if ($testimonial['addImage'] && $testimonial['singleSRC']) {
+            $objModel = FilesModel::findByUuid($testimonial['singleSRC']);
+
+            if ($objModel !== null && is_file(System::getContainer()
+                        ->getParameter('kernel.project_dir').'/'.$objModel->path)
+            ) {
+                $template->addImage = true;
+
+                $arrData = [
+                    'singleSRC' => $objModel->path,
+                    'size' => $model->size,
+                    'floating' => $model->floating,
+                ];
+
+                Controller::addImageToTemplate($template, $arrData, null, null, $objModel);
+            }
+        }
+
         return $template->getResponse();
     }
 
     protected function getRandomTestimonialByArchive(int $pid): ?array
     {
         $testimonial = $this->connection->fetchAllAssociative(
-            'SELECT name, company, department, testimonial FROM tl_testimonials WHERE pid=? ORDER BY RAND() LIMIT 1',
+            'SELECT name, company, department, testimonial, addImage, singleSRC FROM tl_testimonials WHERE pid=? ORDER BY RAND() LIMIT 1',
             [$pid]
         );
 
@@ -68,7 +92,7 @@ class TestimonialContentElementController extends AbstractContentElementControll
     {
         $testimonial = $this->connection
             ->createQueryBuilder()
-            ->select('name, company, department, testimonial')
+            ->select('name, company, department, testimonial, addImage, singleSRC')
             ->from('tl_testimonials')
             ->where('id=:id')
             ->setParameter('id', $id)

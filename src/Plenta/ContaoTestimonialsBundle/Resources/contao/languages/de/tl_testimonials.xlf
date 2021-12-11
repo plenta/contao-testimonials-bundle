@@ -30,7 +30,19 @@
                 <target>Empfehlungsschreiben</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.testimonial.1">
-                <target>Bitte geben Sie das empfehlungsschreibenein.</target>
+                <target>Bitte geben Sie das Empfehlungsschreiben ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.addImage.0">
+                <target>Ein Bild hinzufügen</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.addImage.1">
+                <target>Dem Testimonial ein Bild hinzufügen.</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.singleSRC.0">
+                <target>Quelldatei*</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.singleSRC.1">
+                <target>Bitte wählen Sie eine Datei oder einen Ordner aus der Dateiübersicht.</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.published.0">
                 <target>Testimonial veröffentlichen</target>
@@ -40,6 +52,9 @@
             </trans-unit>
             <trans-unit id="tl_testimonials.testimonial_legend">
                 <target>Testimonial</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.image_legend">
+                <target>Bildeinstellungen</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.publish_legend">
                 <target>Veröffentlichung</target>
