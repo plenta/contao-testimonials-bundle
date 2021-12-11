@@ -17,6 +17,11 @@
     "type": "github",
     "url": "https://github.com/christianbarkowsky"
   }],
+  "support":{
+    "issues": "https://github.com/plenta/contao-testimonials-bundle/issues",
+    "source": "https://github.com/plenta/contao-testimonials-bundle",
+    "docs": "https://plenta.io"
+  },
   "require": {
     "php": "^7.4 || ^8.0",
     "ext-json": "*",
