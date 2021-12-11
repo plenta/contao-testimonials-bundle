@@ -8,5 +8,5 @@ Maybe useful for you.
 Install the bundle via Composer:
 
 ```
-composer require plenta/contao-testimonials-bundlee
+composer require plenta/contao-testimonials-bundle
 ```
