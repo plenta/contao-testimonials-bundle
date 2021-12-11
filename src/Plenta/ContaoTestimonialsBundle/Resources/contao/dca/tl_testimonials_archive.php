@@ -11,7 +11,6 @@ declare(strict_types=1);
  */
 
 $GLOBALS['TL_DCA']['tl_testimonials_archive'] = [
-    // Config
     'config' => [
         'dataContainer' => 'Table',
         'ctable' => ['tl_testimonials'],
@@ -25,7 +24,6 @@ $GLOBALS['TL_DCA']['tl_testimonials_archive'] = [
         ],
     ],
 
-    // List
     'list' => [
         'sorting' => [
             'mode' => 1,
@@ -71,12 +69,10 @@ $GLOBALS['TL_DCA']['tl_testimonials_archive'] = [
         ],
     ],
 
-    // Palettes
     'palettes' => [
         'default' => '{title_legend},title',
     ],
 
-    // Fields
     'fields' => [
         'id' => [
             'sql' => 'int(10) unsigned NOT NULL auto_increment',

@@ -13,7 +13,6 @@ declare(strict_types=1);
 use Plenta\ContaoTestimonialsBundle\EventListener\Contao\Dca\TlTestimonialsListener;
 
 $GLOBALS['TL_DCA']['tl_testimonials'] = [
-    // Config
     'config' => [
         'dataContainer' => 'Table',
         'ptable' => 'tl_testimonials_archive',
@@ -27,7 +26,6 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
         ],
     ],
 
-    // List
     'list' => [
         'sorting' => [
             'mode' => 4,
@@ -68,12 +66,10 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
         ],
     ],
 
-    // Palettes
     'palettes' => [
-        'default' => '{testimonial_legend},name,company,department,testimonial;{publish_legend},published',
+        'default' => '{testimonial_legend},identifier,name,company,department,testimonial;{publish_legend},published',
     ],
 
-    // Fields
     'fields' => [
         'id' => [
             'sql' => 'int(10) unsigned NOT NULL auto_increment',
@@ -86,11 +82,19 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
         'tstamp' => [
             'sql' => 'int(10) unsigned NOT NULL default 0',
         ],
-        'name' => [
+
+        'identifier' => [
             'exclude' => true,
             'flag' => 1,
             'inputType' => 'text',
             'eval' => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
+            'sql' => "varchar(255) NOT NULL default ''",
+        ],
+        'name' => [
+            'exclude' => true,
+            'flag' => 1,
+            'inputType' => 'text',
+            'eval' => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'clr w50'],
             'sql' => "varchar(255) NOT NULL default ''",
         ],
         'company' => [
@@ -109,7 +113,7 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'exclude' => true,
             'search' => true,
             'inputType' => 'textarea',
-            'eval' => ['rte' => 'tinyMCE', 'tl_class' => 'clr'],
+            'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'tl_class' => 'clr'],
             'sql' => 'text NULL',
         ],
         'published' => [

@@ -6,3 +6,9 @@ services:
         public: true
         arguments:
             - '@request_stack'
+
+    plenta.testimonials.listener.data_container:
+        class: Plenta\ContaoTestimonialsBundle\EventListener\DataContainerListener
+        public: true
+        arguments:
+            - "@database_connection"

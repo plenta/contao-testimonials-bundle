@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="tl_testimonials.identifier.0">
+                <target>Bezeichnung</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.identifier.1">
+                <target>Bitte geben Sie eine interne Bezeichnung ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.name.0">
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.name.1">
+                <target>Bitte geben Sie den Name ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.company.0">
+                <target>Firma</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.company.1">
+                <target>Hier können Sie einen Firmennamen eingeben.</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.department.0">
+                <target>Abteilung</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.department.1">
+                <target>Bitte geben Sie eine Abteilung ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.testimonial.0">
+                <target>Empfehlungsschreiben</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.testimonial.1">
+                <target>Bitte geben Sie das empfehlungsschreibenein.</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.published.0">
+                <target>Testimonial veröffentlichen</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.published.1">
+                <target>Das Testimonial auf der Webseite anzeigen.</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.testimonial_legend">
+                <target>Testimonial</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.publish_legend">
+                <target>Veröffentlichung</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
