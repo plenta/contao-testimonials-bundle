@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.1">
-    <file source-language="en" target-language="de">
+    <file datatype="php" source-language="en">
         <body>
             <trans-unit id="tl_content.testimonial_legend">
-                <target>Testimonials</target>
+                <source>Testimonials</source>
             </trans-unit>
             <trans-unit id="tl_content.testimonial_source.0">
-                <target>Anzeigemodus</target>
+                <source>Display mode</source>
             </trans-unit>
             <trans-unit id="tl_content.testimonial_source.1">
-                <target>Bitte wählen.</target>
+                <source>Please select.</source>
             </trans-unit>
             <trans-unit id="tl_content.testimonial_archive.0">
-                <target>Testimonials-Archiv</target>
+                <source>Testimonials archive</source>
             </trans-unit>
             <trans-unit id="tl_content.testimonial_archive.1">
-                <target>Bitte wählen Sie ein Archiv aus, aus dem zufällig ein Testimonial angezeigt wird.</target>
+                <source>Please select an archive from which a testimonial is randomly displayed.</source>
             </trans-unit>
             <trans-unit id="tl_content.testimonialId.0">
-                <target>Testimonial</target>
+                <source>Testimonial</source>
             </trans-unit>
             <trans-unit id="tl_content.testimonialId.1">
-                <target>Bitte wählen Sie ein Testimonial aus.</target>
+                <source>Please select a testimonial.</source>
             </trans-unit>
         </body>
     </file>

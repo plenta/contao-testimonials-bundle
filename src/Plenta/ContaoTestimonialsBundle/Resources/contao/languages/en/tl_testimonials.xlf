@@ -1,82 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.1">
-    <file source-language="en" target-language="de">
+    <file datatype="php" source-language="en">
         <body>
             <trans-unit id="tl_testimonials.identifier.0">
                 <source>Identifier</source>
-                <target>Bezeichnung</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.identifier.1">
                 <source>Please enter an internal identifier.</source>
-                <target>Bitte geben Sie eine interne Bezeichnung ein.</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.name.0">
                 <source>Name</source>
-                <target>Name</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.name.1">
                 <source>Please enter the name.</source>
-                <target>Bitte geben Sie den Name ein.</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.company.0">
                 <source>Company</source>
-                <target>Firma</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.company.1">
                 <source>Here you can enter a company name.</source>
-                <target>Hier können Sie einen Firmennamen eingeben.</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.department.0">
                 <source>Department</source>
-                <target>Abteilung</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.department.1">
                 <source>Here you can enter a department.</source>
-                <target>Bitte geben Sie eine Abteilung ein.</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.testimonial.0">
                 <source>Testimonial</source>
-                <target>Empfehlungsschreiben</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.testimonial.1">
                 <source>Please enter the testimonial.</source>
-                <target>Bitte geben Sie das Empfehlungsschreiben ein.</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.addImage.0">
                 <source>Add an image</source>
-                <target>Ein Bild hinzufügen</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.addImage.1">
                 <source>Add an image to the testimonial element.</source>
-                <target>Dem Testimonial ein Bild hinzufügen.</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.singleSRC.0">
                 <source>Source file</source>
-                <target>Quelldatei*</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.singleSRC.1">
                 <source>Please select a file or folder from the files directory.</source>
-                <target>Bitte wählen Sie eine Datei oder einen Ordner aus der Dateiübersicht.</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.published.0">
                 <source>Publish testimonial</source>
-                <target>Testimonial veröffentlichen</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.published.1">
                 <source>Make the testimonial publicly visible on the website.</source>
-                <target>Das Testimonial auf der Webseite anzeigen.</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.testimonial_legend">
                 <source>Testimonial</source>
-                <target>Testimonial</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.image_legend">
                 <source>Image settings</source>
-                <target>Bildeinstellungen</target>
             </trans-unit>
             <trans-unit id="tl_testimonials.publish_legend">
                 <source>Publish settings</source>
-                <target>Veröffentlichung</target>
             </trans-unit>
         </body>
     </file>
