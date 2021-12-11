@@ -2,6 +2,7 @@
   "name": "plenta/contao-testimonials-bundle",
   "type": "contao-bundle",
   "description": "Testimonials for Contao",
+  "keywords": ["contao", "testimonial", "attestation", "reference"],
   "license": "LGPL-3.0-or-later",
   "authors": [
     {
