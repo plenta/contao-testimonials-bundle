@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Testimonials for Contao Open Source CMS
  *
- * @copyright     Copyright (c) 2021, Plenta.io
+ * @copyright     Copyright (c) 2022, Plenta.io
  * @author        Plenta.io <https://plenta.io>
  * @link          https://github.com/plenta/
  */
@@ -24,15 +24,16 @@ class DataContainerListener
     }
 
     /**
-     * @return array
      * @throws \Doctrine\DBAL\Exception
+     *
+     * @return array
      */
     public function onTestimonialsOptionsCallback(): array
     {
         $testimonials = [];
-        $results = $this->connection->fetchAllAssociative("SELECT t.id AS id, t.identifier AS identifier, a.title AS parent FROM tl_testimonials AS t LEFT JOIN tl_testimonials_archive AS a ON t.pid = a.id WHERE t.published=1 ORDER BY t.identifier ASC");
+        $results = $this->connection->fetchAllAssociative('SELECT t.id AS id, t.identifier AS identifier, a.title AS parent FROM tl_testimonials AS t LEFT JOIN tl_testimonials_archive AS a ON t.pid = a.id WHERE t.published=1 ORDER BY t.identifier ASC');
 
-        if (is_array($results)) {
+        if (\is_array($results)) {
             foreach ($results as $result) {
                 $testimonials[$result['parent']][$result['id']] = $result['identifier'];
             }

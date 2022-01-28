@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Testimonials for Contao Open Source CMS
  *
- * @copyright     Copyright (c) 2021, Plenta.io
+ * @copyright     Copyright (c) 2022, Plenta.io
  * @author        Plenta.io <https://plenta.io>
  * @link          https://github.com/plenta/
  */
@@ -123,7 +123,7 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'exclude' => true,
             'inputType' => 'checkbox',
             'eval' => ['submitOnChange' => true],
-            'sql' => "char(1) NOT NULL default ''"
+            'sql' => "char(1) NOT NULL default ''",
         ],
         'singleSRC' => [
             'exclude' => true,
@@ -135,7 +135,7 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
                 'tl_class' => 'clr',
                 'extensions' => Contao\Config::get('validImageTypes'),
             ],
-            'sql' => "binary(16) NULL",
+            'sql' => 'binary(16) NULL',
         ],
         'published' => [
             'exclude' => true,

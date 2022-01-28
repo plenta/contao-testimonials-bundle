@@ -10,6 +10,14 @@
                 <source>Manage testimonials</source>
                 <target>Testimonials verwalten</target>
             </trans-unit>
+            <trans-unit id="FMD.plenta_testimonials.0">
+                <source>Testimonials</source>
+                <target>Testimonials</target>
+            </trans-unit>
+            <trans-unit id="FMD.plenta_testimonials.1">
+                <source>Manage testimonials</source>
+                <target>Testimonials verwalten</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

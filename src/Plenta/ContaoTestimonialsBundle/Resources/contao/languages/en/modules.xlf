@@ -8,6 +8,12 @@
             <trans-unit id="MOD.testimonials.1">
                 <source>Manage testimonials</source>
             </trans-unit>
+            <trans-unit id="MOD.plenta_testimonials.0">
+                <source>Testimonials</source>
+            </trans-unit>
+            <trans-unit id="MOD.plenta_testimonials.1">
+                <source>Manage testimonials</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

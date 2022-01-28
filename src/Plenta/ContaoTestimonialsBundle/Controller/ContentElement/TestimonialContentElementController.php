@@ -5,28 +5,27 @@ declare(strict_types=1);
 /**
  * Testimonials for Contao Open Source CMS
  *
- * @copyright     Copyright (c) 2021, Plenta.io
+ * @copyright     Copyright (c) 2022, Plenta.io
  * @author        Plenta.io <https://plenta.io>
  * @link          https://github.com/plenta/
  */
 
 namespace Plenta\ContaoTestimonialsBundle\Controller\ContentElement;
 
-
+use Contao\ContentModel;
+use Contao\Controller;
+use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
+use Contao\CoreBundle\ServiceAnnotation\ContentElement;
+use Contao\FilesModel;
 use Contao\System;
 use Contao\Template;
-use Contao\Controller;
-use Contao\FilesModel;
-use Contao\ContentModel;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Contao\CoreBundle\ServiceAnnotation\ContentElement;
-use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 
 /**
-* @ContentElement(category="texts")
-*/
+ * @ContentElement(category="texts")
+ */
 class TestimonialContentElementController extends AbstractContentElementController
 {
     private Connection $connection;
@@ -56,7 +55,7 @@ class TestimonialContentElementController extends AbstractContentElementControll
         if ($testimonial['addImage'] && $testimonial['singleSRC']) {
             $objModel = FilesModel::findByUuid($testimonial['singleSRC']);
 
-            if ($objModel !== null && is_file(System::getContainer()
+            if (null !== $objModel && is_file(System::getContainer()
                         ->getParameter('kernel.project_dir').'/'.$objModel->path)
             ) {
                 $template->addImage = true;
@@ -81,7 +80,7 @@ class TestimonialContentElementController extends AbstractContentElementControll
             [$pid]
         );
 
-        if (is_array($testimonial)) {
+        if (\is_array($testimonial)) {
             return $testimonial[0];
         }
 

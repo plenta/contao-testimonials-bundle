@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Testimonials for Contao Open Source CMS
  *
- * @copyright     Copyright (c) 2021, Plenta.io
+ * @copyright     Copyright (c) 2022, Plenta.io
  * @author        Plenta.io <https://plenta.io>
  * @link          https://github.com/plenta/
  */
@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Plenta\ContaoTestimonialsBundle\EventListener\DataContainer;
 
 use Contao\ContentModel;
-use Contao\DataContainer;
-use Contao\CoreBundle\ServiceAnnotation\Callback;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
+use Contao\CoreBundle\ServiceAnnotation\Callback;
+use Contao\DataContainer;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @Callback(table="tl_content", target="config.onload")

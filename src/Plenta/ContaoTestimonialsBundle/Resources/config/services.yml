@@ -7,3 +7,9 @@ services:
                 category: texts
                 template: ce_testimonial
                 renderer: forward
+
+    Plenta\ContaoTestimonialsBundle\Controller\FrontendModule\TestimonialFrontendModuleController:
+        tags:
+            -   name: contao.frontend_module
+                category: miscellaneous
+                type: !php/const Plenta\ContaoTestimonialsBundle\Controller\FrontendModule\TestimonialFrontendModuleController::TYPE
