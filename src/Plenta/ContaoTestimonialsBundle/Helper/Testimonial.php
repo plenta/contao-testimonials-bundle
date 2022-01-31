@@ -12,13 +12,25 @@ declare(strict_types=1);
 
 namespace Plenta\ContaoTestimonialsBundle\Helper;
 
+use Contao\System;
+use Contao\Model;
+use Contao\ContentModel;
+use Contao\FilesModel;
+use Contao\Template;
+use Contao\Controller;
 use Doctrine\DBAL\Connection;
+use Contao\CoreBundle\Framework\ContaoFramework;
 
 class Testimonial
 {
+    private ContaoFramework $framework;
     private Connection $connection;
 
-    public function __construct(Connection $connection) {
+    public function __construct(
+        ContaoFramework $framework,
+        Connection $connection
+    ) {
+        $this->framework = $framework;
         $this->connection = $connection;
     }
 
@@ -66,5 +78,28 @@ class Testimonial
         }
 
         return null;
+    }
+
+    public function addImageToTemplate(Template $template, Model $model, string $singleSRC): void
+    {
+        $fileAdapter = $this->framework->getAdapter(FilesModel::class);
+        $systemAdapter = $this->framework->getAdapter(System::class);
+        $controllerAdapter = $this->framework->getAdapter(Controller::class);
+
+        $objModel = $fileAdapter->findByUuid($singleSRC);
+
+        if (null !== $objModel && is_file(
+                $systemAdapter->getContainer()->getParameter('kernel.project_dir').'/'.$objModel->path)
+        ) {
+            $template->addImage = true;
+
+            $arrData = [
+                'singleSRC' => $objModel->path,
+                'size' => $model->size,
+                'floating' => $model->floating,
+            ];
+
+            $controllerAdapter->addImageToTemplate($template, $arrData, null, null, $objModel);
+        }
     }
 }

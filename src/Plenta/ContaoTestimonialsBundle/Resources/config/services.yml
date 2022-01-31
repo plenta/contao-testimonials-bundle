@@ -3,6 +3,7 @@ services:
         class: Plenta\ContaoTestimonialsBundle\Helper\Testimonial
         public: true
         arguments:
+            - '@contao.framework'
             - '@database_connection'
 
     Plenta\ContaoTestimonialsBundle\Controller\ContentElement\TestimonialContentElementController:

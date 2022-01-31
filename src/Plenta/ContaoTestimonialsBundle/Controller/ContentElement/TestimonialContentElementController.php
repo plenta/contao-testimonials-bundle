@@ -12,16 +12,13 @@ declare(strict_types=1);
 
 namespace Plenta\ContaoTestimonialsBundle\Controller\ContentElement;
 
-use Contao\ContentModel;
-use Contao\Controller;
-use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
-use Contao\CoreBundle\ServiceAnnotation\ContentElement;
-use Contao\FilesModel;
-use Contao\System;
 use Contao\Template;
+use Contao\ContentModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
+use Contao\CoreBundle\ServiceAnnotation\ContentElement;
+use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 
 /**
  * @ContentElement(category="texts")
@@ -57,21 +54,7 @@ class TestimonialContentElementController extends AbstractContentElementControll
         $template->addImage = false;
 
         if ($testimonial[0]['addImage'] && $testimonial[0]['singleSRC']) {
-            $objModel = FilesModel::findByUuid($testimonial[0]['singleSRC']);
-
-            if (null !== $objModel && is_file(System::getContainer()
-                        ->getParameter('kernel.project_dir').'/'.$objModel->path)
-            ) {
-                $template->addImage = true;
-
-                $arrData = [
-                    'singleSRC' => $objModel->path,
-                    'size' => $model->size,
-                    'floating' => $model->floating,
-                ];
-
-                Controller::addImageToTemplate($template, $arrData, null, null, $objModel);
-            }
+            $this->testimonial->addImageToTemplate($template, $model, $testimonial[0]['singleSRC']);
         }
 
         return $template->getResponse();

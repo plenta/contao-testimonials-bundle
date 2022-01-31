@@ -12,12 +12,13 @@ declare(strict_types=1);
 
 namespace Plenta\ContaoTestimonialsBundle\Controller\FrontendModule;
 
-use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
-use Contao\ModuleModel;
 use Contao\Template;
-use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
+use Contao\ModuleModel;
+use Contao\FrontendTemplate;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
+use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 
 class TestimonialFrontendModuleController extends AbstractFrontendModuleController
 {
@@ -42,11 +43,18 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
 
         if (null !== $testimonials) {
             foreach ($testimonials as $testimonial) {
+                $testimonialImage = new FrontendTemplate();
+                $testimonialImage->addImage = false;
+                $model->size = $model->imgSize;
+
+                $this->testimonial->addImageToTemplate($testimonialImage, $model, $testimonial['singleSRC']);
+
                 $items[] = [
                     'name' => $testimonial['name'],
                     'company' => $testimonial['company'],
                     'department' => $testimonial['department'],
                     'testimonial' => $testimonial['testimonial'],
+                    'image' => $testimonialImage,
                 ];
             }
         }
