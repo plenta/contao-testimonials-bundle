@@ -2,6 +2,12 @@
 <xliff version="1.1">
     <file source-language="en" target-language="de">
         <body>
+            <trans-unit id="tl_module.plenta_testimonials_archive.0">
+                <target>Testimonials-Archiv</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_archive.1">
+                <target>Bitte wählen Sie ein Archiv aus, aus dem die Testimonials angezeigt werden sollen.</target>
+            </trans-unit>
             <trans-unit id="tl_module.plenta_testimonials_limit.0">
                 <target>Gesamtzahl der Beiträge</target>
             </trans-unit>
@@ -12,13 +18,7 @@
                 <target>Zufällige Ausgabe aktivieren</target>
             </trans-unit>
             <trans-unit id="tl_module.plenta_testimonials_random.1">
-                <target>Ausgabe der Beiträge per Zufall.</target>
-            </trans-unit>
-            <trans-unit id="tl_module.plenta_testimonial_archive.0">
-                <target>Testimonials-Archiv</target>
-            </trans-unit>
-            <trans-unit id="tl_module.plenta_testimonial_archive.1">
-                <target>Bitte wählen Sie ein Archiv aus.</target>
+                <target>Ausgabe der Testimonials in zufälliger Reihenfolge.</target>
             </trans-unit>
         </body>
     </file>

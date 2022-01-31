@@ -1,7 +1,13 @@
 services:
-    Plenta\ContaoTestimonialsBundle\Controller\ContentElement\TestimonialContentElementController:
+    plenta.contao_testimonials_bundle.helper.testimonial:
+        class: Plenta\ContaoTestimonialsBundle\Helper\Testimonial
+        public: true
         arguments:
             - '@database_connection'
+
+    Plenta\ContaoTestimonialsBundle\Controller\ContentElement\TestimonialContentElementController:
+        arguments:
+            - '@plenta.contao_testimonials_bundle.helper.testimonial'
         tags:
             -   name: contao.content_element
                 category: texts
@@ -9,6 +15,8 @@ services:
                 renderer: forward
 
     Plenta\ContaoTestimonialsBundle\Controller\FrontendModule\TestimonialFrontendModuleController:
+        arguments:
+            - '@plenta.contao_testimonials_bundle.helper.testimonial'
         tags:
             -   name: contao.frontend_module
                 category: miscellaneous

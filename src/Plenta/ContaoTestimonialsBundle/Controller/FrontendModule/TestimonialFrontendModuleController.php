@@ -15,6 +15,7 @@ namespace Plenta\ContaoTestimonialsBundle\Controller\FrontendModule;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\ModuleModel;
 use Contao\Template;
+use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -22,15 +23,33 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
 {
     public const TYPE = 'plenta_testimonials';
 
+    private Testimonial $testimonial;
+
+    public function __construct(Testimonial $testimonial)
+    {
+        $this->testimonial = $testimonial;
+    }
+
     protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
         $items = [];
 
-        $items[] = [
-            'name' => 'bbbb'
-        ];
+        $testimonials = $this->testimonial->getTestimonialsByArchive(
+            (int) $model->plenta_testimonials_archive,
+            (int) $model->plenta_testimonials_limit,
+            (bool) $model->plenta_testimonials_random
+        );
 
-        //@Todo Items mit Daten füttern.
+        if (null !== $testimonials) {
+            foreach ($testimonials as $testimonial) {
+                $items[] = [
+                    'name' => $testimonial['name'],
+                    'company' => $testimonial['company'],
+                    'department' => $testimonial['department'],
+                    'testimonial' => $testimonial['testimonial'],
+                ];
+            }
+        }
 
         $template->items = $items;
 

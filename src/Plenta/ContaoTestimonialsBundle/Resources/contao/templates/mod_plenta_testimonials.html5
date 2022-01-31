@@ -3,7 +3,23 @@
 <?php if($this->items): ?>
     <?php foreach ($this->items as $item): ?>
         <div class="testimonial">
-            <?= $item['name']; ?>
+            <?php if (!$this->addBefore): ?>
+                <div class="testimonial"><?= $item['testimonial'] ?></div>
+                <div class="name"><?= $item['name'] ?></div>
+                <div class="department"><?= $item['department'] ?></div>
+                <div class="company"><?= $item['company'] ?></div>
+            <?php endif; ?>
+
+            <?php if ($item['addImage']): ?>
+                <?php $this->insert('image', $this->arrData); ?>
+            <?php endif; ?>
+
+            <?php if ($this->addBefore): ?>
+                <div class="testimonial"><?= $item['testimonial'] ?></div>
+                <div class="name"><?= $item['name'] ?></div>
+                <div class="department"><?= $item['department'] ?></div>
+                <div class="company"><?= $item['company'] ?></div>
+            <?php endif; ?>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>
