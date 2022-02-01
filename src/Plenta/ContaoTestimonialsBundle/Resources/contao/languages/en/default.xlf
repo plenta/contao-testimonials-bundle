@@ -2,10 +2,10 @@
 <xliff version="1.1">
     <file datatype="php" source-language="en">
         <body>
-            <trans-unit id="CTE.testimonial_content_element.0">
+            <trans-unit id="CTE.plenta_testimonial.0">
                 <source>Testimonials</source>
             </trans-unit>
-            <trans-unit id="CTE.testimonial_content_element.1">
+            <trans-unit id="CTE.plenta_testimonial.1">
                 <source>Testimonials</source>
             </trans-unit>
             <trans-unit id="TESTIMONIAL.random">

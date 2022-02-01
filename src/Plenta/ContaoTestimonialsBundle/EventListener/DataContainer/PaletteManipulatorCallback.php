@@ -38,21 +38,21 @@ class PaletteManipulatorCallback
 
         $element = ContentModel::findById($dc->id);
 
-        if (null === $element || 'testimonial_content_element' !== $element->type) {
+        if (null === $element || 'plenta_testimonial' !== $element->type) {
             return;
         }
 
         if ('random' === $element->testimonial_source) {
             PaletteManipulator::create()
                 ->removeField('testimonialId', 'testimonial_legend')
-                ->applyToPalette('testimonial_content_element', 'tl_content')
+                ->applyToPalette('plenta_testimonial', 'tl_content')
             ;
         }
 
         if ('single' === $element->testimonial_source) {
             PaletteManipulator::create()
                 ->removeField('testimonial_archive', 'testimonial_legend')
-                ->applyToPalette('testimonial_content_element', 'tl_content')
+                ->applyToPalette('plenta_testimonial', 'tl_content')
             ;
         }
     }
