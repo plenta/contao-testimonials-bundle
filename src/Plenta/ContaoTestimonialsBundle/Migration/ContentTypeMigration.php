@@ -30,7 +30,7 @@ class ContentTypeMigration extends AbstractMigration
 
     public function getName(): string
     {
-        return 'Plenta Testimonials 1.1.2 Update';
+        return 'Plenta Testimonials 1.1.3 Update';
     }
 
     public function shouldRun(): bool
@@ -47,9 +47,8 @@ class ContentTypeMigration extends AbstractMigration
             return false;
         }
 
-        if (
-            !$this->connection
-                ->query("
+        if (true === (bool) $this->connection
+                ->executeQuery("
                     SELECT EXISTS(
                         SELECT id
                         FROM tl_content
@@ -57,7 +56,7 @@ class ContentTypeMigration extends AbstractMigration
                             type = 'testimonial_content_element'
                     )
                 ")
-                ->fetchColumn()
+                ->fetchOne()
         ) {
             return true;
         }
@@ -67,7 +66,7 @@ class ContentTypeMigration extends AbstractMigration
 
     public function run(): MigrationResult
     {
-        $stmt = $this->connection->execute("
+        $stmt = $this->connection->executeQuery("
             UPDATE
                 tl_content
             SET
@@ -78,7 +77,7 @@ class ContentTypeMigration extends AbstractMigration
 
         return $this->createResult(
             true,
-            'Combined '. $stmt->rowCount().' customer names.'
+            'Renamed '.$stmt->rowCount().' entries.'
         );
     }
 }
