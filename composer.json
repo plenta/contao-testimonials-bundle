@@ -35,7 +35,7 @@
         "phpstan/phpstan-symfony": "^0.12.44",
         "contao/phpstan": "^0.12.9",
         "phpstan/phpstan-phpunit": "^0.12.22",
-        "contao/news-bundle": "4.9.*",
+        "contao/news-bundle": "^4.9.*",
         "friendsofphp/php-cs-fixer": "^3.2"
     },
     "extra": {

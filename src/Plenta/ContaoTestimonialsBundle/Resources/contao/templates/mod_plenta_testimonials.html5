@@ -12,7 +12,7 @@
                 <div class="name"><?= $item['name'] ?></div>
                 <div class="department"><?= $item['department'] ?></div>
                 <div class="company"><?= $item['company'] ?></div>
-            </div>>
+            </div>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>

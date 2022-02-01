@@ -43,11 +43,15 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
 
         if (null !== $testimonials) {
             foreach ($testimonials as $testimonial) {
-                $testimonialImage = new FrontendTemplate();
-                $testimonialImage->addImage = false;
-                $model->size = $model->imgSize;
+                $testimonialImage = null;
 
-                $this->testimonial->addImageToTemplate($testimonialImage, $model, $testimonial['singleSRC']);
+                if (true === (bool) $testimonial['addImage']) {
+                    $testimonialImage = new FrontendTemplate();
+                    $testimonialImage->addImage = false;
+                    $model->size = $model->imgSize;
+
+                    $this->testimonial->addImageToTemplate($testimonialImage, $model, $testimonial['singleSRC']);
+                }
 
                 $items[] = [
                     'name' => $testimonial['name'],
