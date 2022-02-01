@@ -2,8 +2,10 @@
 
 <?php $this->block('content'); ?>
     <?php if (!$this->addBefore): ?>
-    <div class="testimonial-content">
-        <div class="testimonial"><?= $this->testimonial ?></div>
+    <div class="testimonial-text">
+        <?= $this->testimonial ?>
+    </div>
+    <div class="testimonial-meta">
         <div class="name"><?= $this->name ?></div>
         <div class="department"><?= $this->department ?></div>
         <div class="company"><?= $this->company ?></div>
@@ -15,11 +17,13 @@
     <?php endif; ?>
 
     <?php if ($this->addBefore): ?>
-    <div class="testimonial-content">
-        <div class="testimonial"><?= $this->testimonial ?></div>
-        <div class="name"><?= $this->name ?></div>
-        <div class="department"><?= $this->department ?></div>
-        <div class="company"><?= $this->company ?></div>
-    </div>
+        <div class="testimonial-text">
+            <?= $this->testimonial ?>
+        </div>
+        <div class="testimonial-meta">
+            <div class="name"><?= $this->name ?></div>
+            <div class="department"><?= $this->department ?></div>
+            <div class="company"><?= $this->company ?></div>
+        </div>
     <?php endif; ?>
 <?php $this->endblock(); ?>
