@@ -25,5 +25,7 @@ services:
                 type: !php/const Plenta\ContaoTestimonialsBundle\Controller\FrontendModule\TestimonialFrontendModuleController::TYPE
 
     Plenta\ContaoTestimonialsBundle\Migration\ContentTypeMigration:
+        arguments:
+            - '@database_connection'
         tags:
             - { name: contao.migration, priority: 0 }
