@@ -28,6 +28,11 @@ class ContentTypeMigration extends AbstractMigration
         $this->connection = $connection;
     }
 
+    public function getName(): string
+    {
+        return 'Plenta Testimonials 1.1.2 Update';
+    }
+
     public function shouldRun(): bool
     {
         $schemaManager = $this->connection->getSchemaManager();
