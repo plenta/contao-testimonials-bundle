@@ -9,6 +9,9 @@
 
             <div class="testimonial-content">
                 <div class="testimonial"><?= $item['testimonial'] ?></div>
+            </div>
+
+            <div class="testimonial-meta">
                 <div class="name"><?= $item['name'] ?></div>
                 <div class="department"><?= $item['department'] ?></div>
                 <div class="company"><?= $item['company'] ?></div>

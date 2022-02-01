@@ -10,7 +10,9 @@ declare(strict_types=1);
  * @link          https://github.com/plenta/
  */
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['testimonial_content_element'] = '
+use Plenta\ContaoTestimonialsBundle\Controller\ContentElement\TestimonialContentElementController;
+
+$GLOBALS['TL_DCA']['tl_content']['palettes'][TestimonialContentElementController::TYPE] = '
     {type_legend},type,headline;
     {testimonial_legend},testimonial_source,testimonial_archive,testimonialId;
     {image_legend},size,floating;

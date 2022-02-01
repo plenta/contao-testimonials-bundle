@@ -12,8 +12,9 @@ services:
         tags:
             -   name: contao.content_element
                 category: texts
-                template: ce_testimonial
+                template: ce_plenta_testimonial
                 renderer: forward
+                type: !php/const Plenta\ContaoTestimonialsBundle\Controller\ContentElement\TestimonialContentElementController::TYPE
 
     Plenta\ContaoTestimonialsBundle\Controller\FrontendModule\TestimonialFrontendModuleController:
         arguments:

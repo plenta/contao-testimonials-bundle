@@ -17,14 +17,12 @@ use Contao\ContentModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
-use Contao\CoreBundle\ServiceAnnotation\ContentElement;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 
-/**
- * @ContentElement(category="texts")
- */
 class TestimonialContentElementController extends AbstractContentElementController
 {
+    public const TYPE = 'plenta_testimonial';
+
     private Testimonial $testimonial;
 
     public function __construct(Testimonial $testimonial)
