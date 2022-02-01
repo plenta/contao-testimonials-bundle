@@ -36,33 +36,40 @@ class ContentTypeMigration extends AbstractMigration
             return false;
         }
 
-        // type testimonial_content_element >> plenta_testimonial
-
         $columns = $schemaManager->listTableColumns('tl_content');
 
-        return
-            isset($columns['firstname']) &&
-            isset($columns['lastname']) &&
-            !isset($columns['name']);
+        if (!isset($columns['type'])) {
+            return false;
+        }
+
+        if (
+            !$this->connection
+                ->query("
+                    SELECT EXISTS(
+                        SELECT id
+                        FROM tl_content
+                        WHERE
+                            type = 'testimonial_content_element'
+                    )
+                ")
+                ->fetchColumn()
+        ) {
+            return true;
+        }
+
+        return false;
     }
 
     public function run(): MigrationResult
     {
-        $this->connection->executeQuery("
-            ALTER TABLE
-                tl_content
-            ADD
-                name varchar(255) NOT NULL DEFAULT ''
-        ");
-
-        $stmt = $this->connection->prepare("
+        $stmt = $this->connection->execute("
             UPDATE
                 tl_content
             SET
-                name = CONCAT(firstName, ' ', lastName)
+                type = 'plenta_testimonial'
+            WHERE
+                type = 'testimonial_content_element'
         ");
-
-        $stmt->execute();
 
         return $this->createResult(
             true,

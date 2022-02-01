@@ -23,3 +23,7 @@ services:
             -   name: contao.frontend_module
                 category: miscellaneous
                 type: !php/const Plenta\ContaoTestimonialsBundle\Controller\FrontendModule\TestimonialFrontendModuleController::TYPE
+
+    Plenta\ContaoTestimonialsBundle\Migration\ContentTypeMigration:
+        tags:
+            - { name: contao.migration, priority: 0 }
