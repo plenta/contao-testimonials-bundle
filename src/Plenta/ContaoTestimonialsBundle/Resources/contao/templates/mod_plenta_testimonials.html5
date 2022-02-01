@@ -7,8 +7,8 @@
                 <?php $this->insert('image', $item['image']->arrData); ?>
             <?php endif; ?>
 
-            <div class="testimonial-content">
-                <div class="testimonial"><?= $item['testimonial'] ?></div>
+            <div class="testimonial-text">
+                <?= $item['testimonial'] ?>
             </div>
 
             <div class="testimonial-meta">
