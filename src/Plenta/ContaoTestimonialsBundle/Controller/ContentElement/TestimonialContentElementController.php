@@ -33,7 +33,7 @@ class TestimonialContentElementController extends AbstractContentElementControll
     protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
     {
         if ('single' === (string) $model->testimonial_source) {
-            $testimonial = $this->testimonial->getTestimonialById((int) $model->testimonialId);
+            $testimonial[0] = $this->testimonial->getTestimonialById((int) $model->testimonialId);
         } else {
             $testimonial = $this->testimonial->getTestimonialsByArchive(
                 (int) $model->testimonial_archive,
