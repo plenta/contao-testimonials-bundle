@@ -32,6 +32,12 @@
             <trans-unit id="tl_testimonials.testimonial.1">
                 <source>Please enter the testimonial.</source>
             </trans-unit>
+            <trans-unit id="tl_testimonials.rating.0">
+                <source>Rating</source>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.rating.1">
+                <source>Rate this testimonial with stars.</source>
+            </trans-unit>
             <trans-unit id="tl_testimonials.addImage.0">
                 <source>Add an image</source>
             </trans-unit>

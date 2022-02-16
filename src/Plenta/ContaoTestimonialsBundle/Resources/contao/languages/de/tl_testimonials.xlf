@@ -42,6 +42,14 @@
                 <source>Please enter the testimonial.</source>
                 <target>Bitte geben Sie das Empfehlungsschreiben ein.</target>
             </trans-unit>
+            <trans-unit id="tl_testimonials.rating.0">
+                <source>Rating</source>
+                <target>Sternebewertung</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.rating.1">
+                <source>Rate this testimonial with stars.</source>
+                <target>Dieses Testimonial mit Sternen bewerten.</target>
+            </trans-unit>
             <trans-unit id="tl_testimonials.addImage.0">
                 <source>Add an image</source>
                 <target>Ein Bild hinzufügen</target>

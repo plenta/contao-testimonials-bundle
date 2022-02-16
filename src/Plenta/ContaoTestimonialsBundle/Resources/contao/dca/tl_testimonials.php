@@ -28,6 +28,7 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
         'sorting' => [
             'mode' => 4,
             'fields' => ['identifier'],
+            'panelLayout' => 'filter;limit',
             'headerFields' => ['title', 'tstamp'],
             'child_record_callback' => ['plenta.testimonials.listener.data_container', 'listTestimonials'],
             'child_record_class' => 'no_padding',
@@ -66,7 +67,7 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
 
     'palettes' => [
         '__selector__' => ['addImage'],
-        'default' => '{testimonial_legend},identifier,name,company,department,testimonial;{image_legend},addImage;{publish_legend},published',
+        'default' => '{testimonial_legend},identifier,name,company,department,testimonial,rating;{image_legend},addImage;{publish_legend},published',
     ],
 
     'subpalettes' => [
@@ -85,7 +86,6 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
         'tstamp' => [
             'sql' => 'int(10) unsigned NOT NULL default 0',
         ],
-
         'identifier' => [
             'exclude' => true,
             'flag' => 1,
@@ -114,10 +114,18 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
         ],
         'testimonial' => [
             'exclude' => true,
-            'search' => true,
             'inputType' => 'textarea',
             'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'tl_class' => 'clr'],
             'sql' => 'text NULL',
+        ],
+        'rating' => [
+            'inputType' => 'select',
+            'exclude' => true,
+            'filter' => true,
+            'sorting' => true,
+            'options' => [1,2,3,4,5],
+            'eval' => ['includeBlankOption' => true, 'tl_class' => 'w50'],
+            'sql' => "char(1) NOT NULL default ''",
         ],
         'addImage' => [
             'exclude' => true,
