@@ -41,7 +41,9 @@ class Testimonial
             ->select('name, company, department, testimonial, addImage, singleSRC')
             ->from('tl_testimonials')
             ->where('id=:id')
+            ->andWhere('published=:published')
             ->setParameter('id', $id)
+            ->setParameter('published', 1)
             ->execute()
             ->fetch()
         ;
@@ -60,7 +62,9 @@ class Testimonial
             ->select('name, company, department, testimonial, addImage, singleSRC')
             ->from('tl_testimonials')
             ->where('pid=:pid')
+            ->andWhere('published=:published')
             ->setParameter('pid', $pid)
+            ->setParameter('published', 1)
             ;
 
         if (0 !== $limit) {
