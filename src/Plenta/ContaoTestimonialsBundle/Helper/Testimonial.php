@@ -106,4 +106,18 @@ class Testimonial
             $controllerAdapter->addImageToTemplate($template, $arrData, null, null, $objModel);
         }
     }
+
+    public function getRating(int $rating): array
+    {
+        $result = [];
+
+        for ($i = 1; $i <=5 ; $i++) {
+            $result[] = [
+                'id' => $i,
+                'checked' => ($i <= $rating) ? true : false
+            ];
+        }
+
+        return $result;
+    }
 }

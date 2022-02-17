@@ -58,6 +58,7 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
                     'company' => $testimonial['company'],
                     'department' => $testimonial['department'],
                     'testimonial' => $testimonial['testimonial'],
+                    'rating' => $this->testimonial->getRating((int) $testimonial['rating']),
                     'image' => $testimonialImage,
                 ];
             }

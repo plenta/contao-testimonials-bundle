@@ -128,9 +128,10 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'exclude' => true,
             'filter' => true,
             'sorting' => true,
-            'options' => [1,2,3,4,5],
-            'eval' => ['includeBlankOption' => true, 'tl_class' => 'w50'],
-            'sql' => "char(1) NOT NULL default ''",
+            'default' => 0,
+            'options' => [0, 1, 2, 3, 4, 5],
+            'eval' => ['tl_class' => 'w50'],
+            'sql' => "char(1) NOT NULL default '0'",
         ],
         'addImage' => [
             'exclude' => true,
