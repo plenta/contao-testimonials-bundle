@@ -14,7 +14,6 @@ namespace Plenta\ContaoTestimonialsBundle\Helper;
 
 use Contao\System;
 use Contao\Model;
-use Contao\ContentModel;
 use Contao\FilesModel;
 use Contao\Template;
 use Contao\Controller;
