@@ -17,11 +17,13 @@
                 <div class="company"><?= $item['company'] ?></div>
             </div>
 
+            <?php if ($this->addRatings): ?>
             <div class="testimonial-rating">
                 <?php foreach ($item['rating'] as $star): ?>
                 <span class="star<?php if ($star['checked']): ?> checked<?php endif; ?>"><?php if ($star['checked']): ?>&#9733;<?php else: ?>&#9734;<?php endif; ?></span>
                 <?php endforeach; ?>
             </div>
+            <?php endif; ?>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>

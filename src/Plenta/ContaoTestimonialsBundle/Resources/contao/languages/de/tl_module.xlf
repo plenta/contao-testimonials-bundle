@@ -6,19 +6,31 @@
                 <target>Testimonials-Archiv</target>
             </trans-unit>
             <trans-unit id="tl_module.plenta_testimonials_archive.1">
-                <target>Bitte wählen Sie ein Archiv aus, aus dem die Testimonials angezeigt werden sollen.</target>
+                <target>Bitte wählen Sie das Archiv aus, aus dem die Testimonials angezeigt werden sollen.</target>
             </trans-unit>
             <trans-unit id="tl_module.plenta_testimonials_limit.0">
-                <target>Gesamtzahl der Beiträge</target>
+                <target>Gesamtzahl der Testimonials</target>
             </trans-unit>
             <trans-unit id="tl_module.plenta_testimonials_limit.1">
-                <target>Hier können Sie die Gesamtzahl der Beiträge begrenzen. Geben Sie 0 ein, um alle anzuzeigen.</target>
+                <target>Hier können Sie die Gesamtzahl der Testimonials begrenzen. Geben Sie 0 ein, um alle anzuzeigen.</target>
             </trans-unit>
             <trans-unit id="tl_module.plenta_testimonials_random.0">
                 <target>Zufällige Ausgabe aktivieren</target>
             </trans-unit>
             <trans-unit id="tl_module.plenta_testimonials_random.1">
                 <target>Ausgabe der Testimonials in zufälliger Reihenfolge.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_addImages.0">
+                <target>Bilder anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_addImages.1">
+                <target>Den Testimonials ein Bild hinzufügen.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_addRatings.0">
+                <target>Sternebewertung anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_addRatings.1">
+                <target>Die Sternebewertung der Testimonials ausgeben.</target>
             </trans-unit>
         </body>
     </file>

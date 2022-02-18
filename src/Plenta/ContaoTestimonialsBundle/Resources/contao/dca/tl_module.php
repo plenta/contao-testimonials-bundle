@@ -14,7 +14,8 @@ use Plenta\ContaoTestimonialsBundle\Controller\FrontendModule\TestimonialFronten
 
 $GLOBALS['TL_DCA']['tl_module']['palettes'][TestimonialFrontendModuleController::TYPE] =
     '{title_legend},name,headline,type;
-    {config_legend},plenta_testimonials_archive,plenta_testimonials_random,plenta_testimonials_limit,imgSize;
+    {config_legend},plenta_testimonials_archive,plenta_testimonials_random,plenta_testimonials_limit,imgSize,
+    plenta_testimonials_addImages,plenta_testimonials_addRatings;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
     {expert_legend:hide},guests,cssID'
@@ -57,3 +58,20 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_limit'] = [
     'sql' => 'smallint(5) unsigned NOT NULL default 0',
 ];
 
+$GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_addImages'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => [
+        'tl_class' => 'w50',
+    ],
+    'sql' => "char(1) NOT NULL default '1'",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_addRatings'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => [
+        'tl_class' => 'w50',
+    ],
+    'sql' => "char(1) NOT NULL default '1'",
+];
