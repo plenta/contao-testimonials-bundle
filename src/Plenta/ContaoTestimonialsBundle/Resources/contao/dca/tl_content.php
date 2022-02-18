@@ -17,6 +17,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes'][TestimonialContentElementController
     {testimonial_legend},testimonial_source,testimonial_archive,testimonialId,
     testimonial_addImages,testimonial_addRatings;
     {image_legend},size,floating;
+    {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
     {expert_legend:hide},guests,cssID;
     {invisible_legend:hide},invisible,start,stop
