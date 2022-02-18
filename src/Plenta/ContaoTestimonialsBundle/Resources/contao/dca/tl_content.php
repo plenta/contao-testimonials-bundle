@@ -14,7 +14,8 @@ use Plenta\ContaoTestimonialsBundle\Controller\ContentElement\TestimonialContent
 
 $GLOBALS['TL_DCA']['tl_content']['palettes'][TestimonialContentElementController::TYPE] = '
     {type_legend},type,headline;
-    {testimonial_legend},testimonial_source,testimonial_archive,testimonialId;
+    {testimonial_legend},testimonial_source,testimonial_archive,testimonialId,
+    testimonial_addImages,testimonial_addRatings;
     {image_legend},size,floating;
     {protected_legend:hide},protected;
     {expert_legend:hide},guests,cssID;
@@ -48,3 +49,22 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['testimonialId'] = [
     'sql' => 'int(10) unsigned NOT NULL default 0',
     'relation' => ['table' => 'tl_testimonials', 'type' => 'hasOne', 'load' => 'lazy'],
 ];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['testimonial_addImages'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => [
+        'tl_class' => 'clr w50',
+    ],
+    'sql' => "char(1) NOT NULL default '1'",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['testimonial_addRatings'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => [
+        'tl_class' => 'w50',
+    ],
+    'sql' => "char(1) NOT NULL default '1'",
+];
+

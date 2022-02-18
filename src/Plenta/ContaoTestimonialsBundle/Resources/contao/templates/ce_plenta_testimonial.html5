@@ -10,11 +10,13 @@
         <div class="department"><?= $this->department ?></div>
         <div class="company"><?= $this->company ?></div>
     </div>
-        <div class="testimonial-rating">
-            <?php foreach ($this->rating as $star): ?>
-                <span class="star<?php if ($star['checked']): ?> checked<?php endif; ?>"><?php if ($star['checked']): ?>&#9733;<?php else: ?>&#9734;<?php endif; ?></span>
-            <?php endforeach; ?>
-        </div>
+    <?php if ($this->addRating): ?>
+    <div class="testimonial-rating">
+        <?php foreach ($this->rating as $star): ?>
+            <span class="star<?php if ($star['checked']): ?> checked<?php endif; ?>"><?php if ($star['checked']): ?>&#9733;<?php else: ?>&#9734;<?php endif; ?></span>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
     <?php endif; ?>
 
     <?php if ($this->addImage): ?>
@@ -22,18 +24,20 @@
     <?php endif; ?>
 
     <?php if ($this->addBefore): ?>
-        <div class="testimonial-text">
-            <?= $this->testimonial ?>
-        </div>
-        <div class="testimonial-meta">
-            <div class="name"><?= $this->name ?></div>
-            <div class="department"><?= $this->department ?></div>
-            <div class="company"><?= $this->company ?></div>
-        </div>
-        <div class="testimonial-rating">
-            <?php foreach ($this->rating as $star): ?>
-                <span class="star<?php if ($star['checked']): ?> checked<?php endif; ?>"><?php if ($star['checked']): ?>&#9733;<?php else: ?>&#9734;<?php endif; ?></span>
-            <?php endforeach; ?>
-        </div>
+    <div class="testimonial-text">
+        <?= $this->testimonial ?>
+    </div>
+    <div class="testimonial-meta">
+        <div class="name"><?= $this->name ?></div>
+        <div class="department"><?= $this->department ?></div>
+        <div class="company"><?= $this->company ?></div>
+    </div>
+    <?php if ($this->addRating): ?>
+    <div class="testimonial-rating">
+        <?php foreach ($this->rating as $star): ?>
+            <span class="star<?php if ($star['checked']): ?> checked<?php endif; ?>"><?php if ($star['checked']): ?>&#9733;<?php else: ?>&#9734;<?php endif; ?></span>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
     <?php endif; ?>
 <?php $this->endblock(); ?>

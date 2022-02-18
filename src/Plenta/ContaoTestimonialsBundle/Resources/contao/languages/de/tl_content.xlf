@@ -23,6 +23,18 @@
             <trans-unit id="tl_content.testimonialId.1">
                 <target>Bitte wählen Sie ein Testimonial aus.</target>
             </trans-unit>
+            <trans-unit id="tl_content.testimonial_addImages.0">
+                <target>Bild anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_content.testimonial_addImages.1">
+                <target>Dem Testimonial ein Bild hinzufügen.</target>
+            </trans-unit>
+            <trans-unit id="tl_content.testimonial_addRatings.0">
+                <target>Sternebewertung anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_content.testimonial_addRatings.1">
+                <target>Die Sternebewertung des Testimonials ausgeben.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
