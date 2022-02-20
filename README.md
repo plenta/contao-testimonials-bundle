@@ -1,12 +1,18 @@
-# Testimonials for Contao Open Source CMS
+# Contao Testimonials (Kundenstimmen)
 
-Simple testimonial extension to display customer testimonials on your website.  
-Maybe useful for you.
+Schaffe Vertrauen innerhalb deiner Zielgruppe und bleibe mit deiner Marke und/oder deinem Produkt im Gespräch. Steigere das Interesse von Neukunden, durch unsere Testimonial-Erweiterung auf deiner Website und baue jetzt auf die authentischen Kundenrezensionen.
 
-## Installation
+# Installation
+## Installation über den Contao Manager
 
-Install the bundle via Composer:
+Suche im Contao Manager nach **Kundenstimme**, **Testimonial** oder **Empfehlung** und du findest unsere kostenlose Open Source Erweiterung.
+
+## Installation mittels Composer
 
 ```
-composer require plenta/contao-testimonials-bundle
+$ composer require plenta/contao-testimonials-bundle
 ```
+
+# Konfiguration
+
+Vollständige Anleitung: https://plenta.io/contao-testimonials
