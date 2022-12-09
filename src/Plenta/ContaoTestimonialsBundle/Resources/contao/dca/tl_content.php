@@ -14,12 +14,8 @@ use Plenta\ContaoTestimonialsBundle\Controller\ContentElement\TestimonialContent
 
 $GLOBALS['TL_DCA']['tl_content']['palettes'][TestimonialContentElementController::TYPE] = '
     {type_legend},type,headline;
-<<<<<<< HEAD
-    {testimonial_legend},testimonial_source,testimonial_archive,plenta_testimonials_categories,testimonialId;
-=======
-    {testimonial_legend},testimonial_source,testimonial_archive,testimonialId,
+    {testimonial_legend},testimonial_source,testimonial_archive,plenta_testimonials_categories,testimonialId,
     testimonial_addImages,testimonial_addRatings;
->>>>>>> 756088c7ddfce939118143a458138e228adac4d0
     {image_legend},size,floating;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;

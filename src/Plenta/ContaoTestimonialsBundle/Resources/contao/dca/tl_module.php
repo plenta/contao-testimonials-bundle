@@ -14,12 +14,8 @@ use Plenta\ContaoTestimonialsBundle\Controller\FrontendModule\TestimonialFronten
 
 $GLOBALS['TL_DCA']['tl_module']['palettes'][TestimonialFrontendModuleController::TYPE] =
     '{title_legend},name,headline,type;
-<<<<<<< HEAD
-    {config_legend},plenta_testimonials_archive,plenta_testimonials_categories,plenta_testimonials_random,plenta_testimonials_limit,imgSize;
-=======
-    {config_legend},plenta_testimonials_archive,plenta_testimonials_random,plenta_testimonials_limit,imgSize,
+    {config_legend},plenta_testimonials_archive,plenta_testimonials_categories,plenta_testimonials_random,plenta_testimonials_limit,imgSize,
     plenta_testimonials_addImages,plenta_testimonials_addRatings;
->>>>>>> 756088c7ddfce939118143a458138e228adac4d0
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
     {expert_legend:hide},guests,cssID'
