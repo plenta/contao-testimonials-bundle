@@ -48,13 +48,16 @@ class TestimonialContentElementController extends AbstractContentElementControll
             $template->company = $testimonial[0]['company'];
             $template->department = $testimonial[0]['department'];
             $template->testimonial = $testimonial[0]['testimonial'];
+            $template->rating = $this->testimonial->getRating((int) $testimonial[0]['rating']);
         }
 
         $template->addImage = false;
 
-        if ($testimonial[0]['addImage'] && $testimonial[0]['singleSRC']) {
+        if (true === (bool) $model->testimonial_addImages && $testimonial[0]['addImage'] && $testimonial[0]['singleSRC']) {
             $this->testimonial->addImageToTemplate($template, $model, $testimonial[0]['singleSRC']);
         }
+
+        $template->addRating = $model->testimonial_addRatings;
 
         return $template->getResponse();
     }

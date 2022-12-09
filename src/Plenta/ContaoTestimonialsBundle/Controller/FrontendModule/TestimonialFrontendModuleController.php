@@ -46,7 +46,7 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
             foreach ($testimonials as $testimonial) {
                 $testimonialImage = null;
 
-                if (true === (bool) $testimonial['addImage']) {
+                if (true === (bool) $model->plenta_testimonials_addImages && true === (bool) $testimonial['addImage']) {
                     $testimonialImage = new FrontendTemplate();
                     $testimonialImage->addImage = false;
                     $model->size = $model->imgSize;
@@ -59,11 +59,13 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
                     'company' => $testimonial['company'],
                     'department' => $testimonial['department'],
                     'testimonial' => $testimonial['testimonial'],
+                    'rating' => $this->testimonial->getRating((int) $testimonial['rating']),
                     'image' => $testimonialImage,
                 ];
             }
         }
 
+        $template->addRatings = $model->plenta_testimonials_addRatings;
         $template->items = $items;
 
         return $template->getResponse();

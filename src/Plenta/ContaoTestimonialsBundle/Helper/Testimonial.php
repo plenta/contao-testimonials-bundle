@@ -15,7 +15,6 @@ namespace Plenta\ContaoTestimonialsBundle\Helper;
 use Contao\StringUtil;
 use Contao\System;
 use Contao\Model;
-use Contao\ContentModel;
 use Contao\FilesModel;
 use Contao\Template;
 use Contao\Controller;
@@ -39,10 +38,12 @@ class Testimonial
     {
         $testimonial = $this->connection
             ->createQueryBuilder()
-            ->select('name, company, department, testimonial, addImage, singleSRC')
+            ->select('name, company, department, testimonial, rating, addImage, singleSRC')
             ->from('tl_testimonials')
             ->where('id=:id')
+            ->andWhere('published=:published')
             ->setParameter('id', $id)
+            ->setParameter('published', 1)
             ->execute()
             ->fetch()
         ;
@@ -58,10 +59,12 @@ class Testimonial
     {
         $testimonials = $this->connection
             ->createQueryBuilder()
-            ->select('name, company, department, testimonial, addImage, singleSRC')
+            ->select('name, company, department, testimonial, rating, addImage, singleSRC')
             ->from('tl_testimonials')
             ->where('pid=:pid')
+            ->andWhere('published=:published')
             ->setParameter('pid', $pid)
+            ->setParameter('published', 1)
             ;
 
 
@@ -112,5 +115,19 @@ class Testimonial
 
             $controllerAdapter->addImageToTemplate($template, $arrData, null, null, $objModel);
         }
+    }
+
+    public function getRating(int $rating): array
+    {
+        $result = [];
+
+        for ($i = 1; $i <=5 ; $i++) {
+            $result[] = [
+                'id' => $i,
+                'checked' => ($i <= $rating) ? true : false
+            ];
+        }
+
+        return $result;
     }
 }

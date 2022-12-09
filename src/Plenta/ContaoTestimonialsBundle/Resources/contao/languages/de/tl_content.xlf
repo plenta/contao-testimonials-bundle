@@ -29,6 +29,18 @@
             <trans-unit id="tl_content.plenta_testimonials_categories.1">
                 <target>Bitte wählen Sie Kategorien aus, aus denen zufällig ein Testimonial angezeigt wird.</target>
             </trans-unit>
+            <trans-unit id="tl_content.testimonial_addImages.0">
+                <target>Bild anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_content.testimonial_addImages.1">
+                <target>Dem Testimonial ein Bild hinzufügen.</target>
+            </trans-unit>
+            <trans-unit id="tl_content.testimonial_addRatings.0">
+                <target>Sternebewertung anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_content.testimonial_addRatings.1">
+                <target>Die Sternebewertung des Testimonials ausgeben.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

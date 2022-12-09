@@ -128,9 +128,10 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'exclude' => true,
             'filter' => true,
             'sorting' => true,
-            'options' => [1,2,3,4,5],
-            'eval' => ['includeBlankOption' => true, 'tl_class' => 'w50'],
-            'sql' => "char(1) NOT NULL default ''",
+            'default' => 0,
+            'options' => [0, 1, 2, 3, 4, 5],
+            'eval' => ['tl_class' => 'w50'],
+            'sql' => "char(1) NOT NULL default '0'",
         ],
         'addImage' => [
             'exclude' => true,
@@ -197,15 +198,13 @@ class tl_testimonials extends \Contao\Backend
         }
 
         // Check permissions AFTER checking the cid, so hacking attempts are logged
-        if (!$this->User->hasAccess('tl_testimonials::published', 'alexf'))
-        {
+        if (!$this->User->hasAccess('tl_testimonials::published', 'alexf')) {
             return '';
         }
 
         $href .= '&amp;id=' . Contao\Input::get('id') . '&amp;cid=' . $row['id'] . '&amp;state=' . $row['published'];
 
-        if ($row['published'])
-        {
+        if ($row['published']) {
             $icon = 'visible.svg';
         }
 
@@ -227,31 +226,25 @@ class tl_testimonials extends \Contao\Backend
         Contao\Input::setGet('id', $intId);
         Contao\Input::setGet('act', 'toggle');
 
-        if ($dc)
-        {
+        if ($dc) {
             $dc->id = $intId; // see #8043
         }
 
         // Trigger the onload_callback
-        if (is_array($GLOBALS['TL_DCA']['tl_testimonials']['config']['onload_callback'] ?? null))
-        {
-            foreach ($GLOBALS['TL_DCA']['tl_testimonials']['config']['onload_callback'] as $callback)
-            {
-                if (is_array($callback))
-                {
+
+        if (is_array($GLOBALS['TL_DCA']['tl_testimonials']['config']['onload_callback'] ?? null)) {
+            foreach ($GLOBALS['TL_DCA']['tl_testimonials']['config']['onload_callback'] as $callback) {
+                if (is_array($callback)) {
                     $this->import($callback[0]);
                     $this->{$callback[0]}->{$callback[1]}($dc);
-                }
-                elseif (is_callable($callback))
-                {
+                } elseif (is_callable($callback)) {
                     $callback($dc);
                 }
             }
         }
 
         // Check the field access
-        if (!$this->User->hasAccess('tl_testimonials::published', 'alexf'))
-        {
+        if (!$this->User->hasAccess('tl_testimonials::published', 'alexf')) {
             throw new Contao\CoreBundle\Exception\AccessDeniedException('Not enough permissions to show/hide content element ID ' . $intId . '.');
         }
 
@@ -259,14 +252,12 @@ class tl_testimonials extends \Contao\Backend
             ->limit(1)
             ->execute($intId);
 
-        if ($objRow->numRows < 1)
-        {
+        if ($objRow->numRows < 1) {
             throw new Contao\CoreBundle\Exception\AccessDeniedException('Invalid testimonial ID ' . $intId . '.');
         }
 
         // Set the current record
-        if ($dc)
-        {
+        if ($dc) {
             $dc->activeRecord = $objRow;
         }
 
@@ -274,17 +265,13 @@ class tl_testimonials extends \Contao\Backend
         $objVersions->initialize();
 
         // Trigger the save_callback
-        if (is_array($GLOBALS['TL_DCA']['tl_testimonials']['fields']['published']['save_callback'] ?? null))
-        {
+        if (is_array($GLOBALS['TL_DCA']['tl_testimonials']['fields']['published']['save_callback'] ?? null)) {
             foreach ($GLOBALS['TL_DCA']['tl_testimonials']['fields']['published']['save_callback'] as $callback)
             {
-                if (is_array($callback))
-                {
+                if (is_array($callback)) {
                     $this->import($callback[0]);
                     $blnVisible = $this->{$callback[0]}->{$callback[1]}($blnVisible, $dc);
-                }
-                elseif (is_callable($callback))
-                {
+                } elseif (is_callable($callback)) {
                     $blnVisible = $callback($blnVisible, $dc);
                 }
             }
@@ -296,24 +283,19 @@ class tl_testimonials extends \Contao\Backend
         $this->Database->prepare("UPDATE tl_testimonials SET tstamp=$time, published='" . ($blnVisible ? '1' : '') . "' WHERE id=?")
             ->execute($intId);
 
-        if ($dc)
-        {
+        if ($dc) {
             $dc->activeRecord->tstamp = $time;
             $dc->activeRecord->published = ($blnVisible ? '1' : '');
         }
 
         // Trigger the onsubmit_callback
-        if (is_array($GLOBALS['TL_DCA']['tl_testimonials']['config']['onsubmit_callback'] ?? null))
-        {
-            foreach ($GLOBALS['TL_DCA']['tl_testimonials']['config']['onsubmit_callback'] as $callback)
-            {
-                if (is_array($callback))
-                {
+
+        if (is_array($GLOBALS['TL_DCA']['tl_testimonials']['config']['onsubmit_callback'] ?? null)) {
+            foreach ($GLOBALS['TL_DCA']['tl_testimonials']['config']['onsubmit_callback'] as $callback) {
+                if (is_array($callback)) {
                     $this->import($callback[0]);
                     $this->{$callback[0]}->{$callback[1]}($dc);
-                }
-                elseif (is_callable($callback))
-                {
+                } elseif (is_callable($callback)) {
                     $callback($dc);
                 }
             }
@@ -321,8 +303,7 @@ class tl_testimonials extends \Contao\Backend
 
         $objVersions->create();
 
-        if ($dc)
-        {
+        if ($dc) {
             $dc->invalidateCacheTags();
         }
     }
