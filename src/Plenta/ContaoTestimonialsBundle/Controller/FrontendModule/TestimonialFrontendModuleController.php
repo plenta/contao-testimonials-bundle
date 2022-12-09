@@ -38,7 +38,8 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
         $testimonials = $this->testimonial->getTestimonialsByArchive(
             (int) $model->plenta_testimonials_archive,
             (int) $model->plenta_testimonials_limit,
-            (bool) $model->plenta_testimonials_random
+            (bool) $model->plenta_testimonials_random,
+            $model->plenta_testimonials_categories
         );
 
         if (null !== $testimonials) {

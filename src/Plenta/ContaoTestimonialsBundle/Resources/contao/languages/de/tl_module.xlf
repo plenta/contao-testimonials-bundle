@@ -20,6 +20,12 @@
             <trans-unit id="tl_module.plenta_testimonials_random.1">
                 <target>Ausgabe der Testimonials in zufälliger Reihenfolge.</target>
             </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_categories.0">
+                <target>Kategorien</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_categories.1">
+                <target>Bitte wählen Sie Kategorien aus, aus denen die Testimonials angezeigt werden sollen.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -11,5 +11,5 @@ declare(strict_types=1);
  */
 
 $GLOBALS['BE_MOD']['content']['testimonials'] = [
-    'tables' => ['tl_testimonials_archive', 'tl_testimonials'],
+    'tables' => ['tl_testimonials_archive', 'tl_testimonials', 'tl_testimonials_category'],
 ];

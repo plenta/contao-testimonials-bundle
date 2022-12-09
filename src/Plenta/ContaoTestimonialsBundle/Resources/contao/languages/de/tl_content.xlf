@@ -23,6 +23,12 @@
             <trans-unit id="tl_content.testimonialId.1">
                 <target>Bitte wählen Sie ein Testimonial aus.</target>
             </trans-unit>
+            <trans-unit id="tl_content.plenta_testimonials_categories.0">
+                <target>Kategorien</target>
+            </trans-unit>
+            <trans-unit id="tl_content.plenta_testimonials_categories.1">
+                <target>Bitte wählen Sie Kategorien aus, aus denen zufällig ein Testimonial angezeigt wird.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

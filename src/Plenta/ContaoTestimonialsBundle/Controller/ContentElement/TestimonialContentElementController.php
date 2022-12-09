@@ -38,7 +38,8 @@ class TestimonialContentElementController extends AbstractContentElementControll
             $testimonial = $this->testimonial->getTestimonialsByArchive(
                 (int) $model->testimonial_archive,
                 1,
-                true
+                true,
+                $model->plenta_testimonials_categories
             );
         }
 

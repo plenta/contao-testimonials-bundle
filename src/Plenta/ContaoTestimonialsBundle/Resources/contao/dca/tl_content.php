@@ -14,7 +14,7 @@ use Plenta\ContaoTestimonialsBundle\Controller\ContentElement\TestimonialContent
 
 $GLOBALS['TL_DCA']['tl_content']['palettes'][TestimonialContentElementController::TYPE] = '
     {type_legend},type,headline;
-    {testimonial_legend},testimonial_source,testimonial_archive,testimonialId;
+    {testimonial_legend},testimonial_source,testimonial_archive,plenta_testimonials_categories,testimonialId;
     {image_legend},size,floating;
     {protected_legend:hide},protected;
     {expert_legend:hide},guests,cssID;
@@ -47,4 +47,15 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['testimonialId'] = [
     'eval' => ['chosen' => true, 'mandatory' => false, 'tl_class' => 'w50'],
     'sql' => 'int(10) unsigned NOT NULL default 0',
     'relation' => ['table' => 'tl_testimonials', 'type' => 'hasOne', 'load' => 'lazy'],
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['plenta_testimonials_categories'] = [
+    'exclude' => true,
+    'inputType' => 'checkboxWizard',
+    'foreignKey' => 'tl_testimonials_category.title',
+    'eval' => [
+        'multiple' => true,
+        'tl_class' => 'w50',
+    ],
+    'sql' => 'mediumtext NULL',
 ];

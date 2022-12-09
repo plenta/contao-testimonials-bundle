@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file source-language="en" target-language="de">
+        <body>
+            <trans-unit id="tl_testimonials_category.title.0">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials_category.title.1">
+                <source>Please enter a title.</source>
+                <target>Bitte geben Sie einen Titel ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials_category.published.0">
+                <source>Publish testimonial</source>
+                <target>Testimonial veröffentlichen</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials_category.published.1">
+                <source>Make the testimonial publicly visible on the website.</source>
+                <target>Das Testimonial auf der Webseite anzeigen.</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials_category.testimonials_category_legend">
+                <source>Kategorie</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials_category.publish_legend">
+                <source>Publish settings</source>
+                <target>Veröffentlichung</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials_category.back">
+                <source>Back</source>
+                <target>Zurück</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

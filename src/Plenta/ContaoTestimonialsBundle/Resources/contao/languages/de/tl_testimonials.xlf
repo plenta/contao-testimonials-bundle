@@ -86,6 +86,14 @@
                 <source>Publish settings</source>
                 <target>Veröffentlichung</target>
             </trans-unit>
+            <trans-unit id="tl_testimonials.categories.0">
+                <source>Categories</source>
+                <target>Kategorien</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.categories.1">
+                <source>Please choose categories from the list.</source>
+                <target>Bitte wählen Sie Kategorien aus der Liste aus.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

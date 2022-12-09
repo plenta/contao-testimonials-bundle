@@ -18,6 +18,10 @@
                 <source>Title</source>
                 <target>Titel</target>
             </trans-unit>
+            <trans-unit id="tl_testimonials_archive.categories">
+                <source>Kategorien</source>
+                <target>Kategorien</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Plenta\ContaoTestimonialsBundle\Helper;
 
+use Contao\StringUtil;
 use Contao\System;
 use Contao\Model;
 use Contao\ContentModel;
@@ -53,7 +54,7 @@ class Testimonial
         return null;
     }
 
-    public function getTestimonialsByArchive(int $pid, int $limit, bool $random = false): ?array
+    public function getTestimonialsByArchive(int $pid, int $limit, bool $random = false, $categories = ''): ?array
     {
         $testimonials = $this->connection
             ->createQueryBuilder()
@@ -62,6 +63,16 @@ class Testimonial
             ->where('pid=:pid')
             ->setParameter('pid', $pid)
             ;
+
+
+        if (!empty($categories) && (is_array($categoryArr = StringUtil::deserialize($categories)))) {
+            $criteria = [];
+
+            foreach ($categoryArr as $category) {
+                $criteria[] = "categories LIKE '%\"".$category."\"%'";
+            }
+            $testimonials->andWhere(implode(' OR ', $criteria));
+        }
 
         if (0 !== $limit) {
             $testimonials->setMaxResults($limit);
