@@ -14,7 +14,7 @@ use Plenta\ContaoTestimonialsBundle\Controller\FrontendModule\TestimonialFronten
 
 $GLOBALS['TL_DCA']['tl_module']['palettes'][TestimonialFrontendModuleController::TYPE] =
     '{title_legend},name,headline,type;
-    {config_legend},plenta_testimonials_archive,plenta_testimonials_categories,plenta_testimonials_random,plenta_testimonials_limit,imgSize,
+    {config_legend},plenta_testimonials_archive,plenta_testimonials_random,plenta_testimonials_limit,plenta_testimonials_categories,imgSize,
     plenta_testimonials_addImages,plenta_testimonials_addRatings;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
@@ -37,11 +37,12 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_archive'] = [
     ],
 ];
 
+
 $GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_random'] = [
     'exclude' => true,
     'inputType' => 'checkbox',
     'eval' => [
-        'tl_class' => 'w50 m12',
+        'tl_class' => 'w50 cbx m12',
     ],
     'sql' => "char(1) NOT NULL default ''",
 ];
@@ -52,7 +53,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_limit'] = [
     'eval' => [
         'maxlength' => 5,
         'rgxp' => 'natural',
-        'tl_class' => 'w50',
+        'tl_class' => 'clr w50',
     ],
     'sql' => 'smallint(5) unsigned NOT NULL default 0',
 ];
@@ -63,7 +64,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_categories'] = [
     'foreignKey' => 'tl_testimonials_category.title',
     'eval' => [
         'multiple' => true,
-        'tl_class' => 'w50',
+        'tl_class' => 'clr',
     ],
     'sql' => 'mediumtext NULL',
 ];
@@ -72,7 +73,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_addImages'] = [
     'exclude' => true,
     'inputType' => 'checkbox',
     'eval' => [
-        'tl_class' => 'w50',
+        'tl_class' => 'clr w50 m12',
     ],
     'sql' => "char(1) NOT NULL default '1'",
 ];
@@ -81,7 +82,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_addRatings'] = [
     'exclude' => true,
     'inputType' => 'checkbox',
     'eval' => [
-        'tl_class' => 'w50',
+        'tl_class' => 'w50 m12',
     ],
     'sql' => "char(1) NOT NULL default '1'",
 ];
