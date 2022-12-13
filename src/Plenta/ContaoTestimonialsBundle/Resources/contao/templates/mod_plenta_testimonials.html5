@@ -3,7 +3,7 @@
 <?php if($this->items): ?>
     <?php foreach ($this->items as $item): ?>
         <div class="testimonial">
-            <?php if ($item['image']->addImage): ?>
+            <?php if (isset($item['image']) && $item['image']->addImage): ?>
                 <?php $this->insert('image', $item['image']->arrData); ?>
             <?php endif; ?>
 
@@ -13,8 +13,8 @@
 
             <div class="testimonial-meta">
                 <div class="name"><?= $item['name'] ?></div>
-                <div class="department"><?= $item['department'] ?></div>
-                <div class="company"><?= $item['company'] ?></div>
+                <?php if (!empty($item['department'])): ?><div class="department"><?= $item['department'] ?></div><?php endif; ?>
+                <?php if (!empty($item['company'])): ?><div class="company"><?= $item['company'] ?></div><?php endif; ?>
             </div>
 
             <?php if ($this->addRatings): ?>
