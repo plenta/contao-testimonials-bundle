@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Plenta\ContaoTestimonialsBundle\Controller\ContentElement;
 
-use Contao\Template;
 use Contao\ContentModel;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
@@ -30,7 +30,7 @@ class TestimonialContentElementController extends AbstractContentElementControll
         $this->testimonial = $testimonial;
     }
 
-    protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
+    protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
         if ('single' === (string) $model->testimonial_source) {
             $testimonial[0] = $this->testimonial->getTestimonialById((int) $model->testimonialId);

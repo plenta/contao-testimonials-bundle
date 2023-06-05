@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Plenta\ContaoTestimonialsBundle\Controller\FrontendModule;
 
-use Contao\Template;
 use Contao\ModuleModel;
 use Contao\FrontendTemplate;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
@@ -31,7 +31,7 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
         $this->testimonial = $testimonial;
     }
 
-    protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
+    protected function getResponse(FragmentTemplate $template, ModuleModel $model, Request $request): Response
     {
         $items = [];
 
