@@ -5,7 +5,7 @@ $date = date('Y');
 $header = <<<EOF
 Testimonials for Contao Open Source CMS
 
-@copyright     Copyright (c) $date, Plenta.io
+@copyright     Copyright (c) 2022-$date, Plenta.io
 @author        Plenta.io <https://plenta.io>
 @link          https://github.com/plenta/
 EOF;
