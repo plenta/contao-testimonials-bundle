@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Plenta\ContaoTestimonialsBundle\:
+        resource: ../src/*
+        exclude: ../src/{Entity,Migrations,Resources,Tests}
+
+    Plenta\ContaoTestimonialsBundle\Migration\ContentTypeMigration:
+        arguments:
+            - '@database_connection'
+        tags:
+            - { name: contao.migration, priority: 0 }

@@ -1,0 +1,26 @@
+{% extends '@Contao/block_searchable.html.twig' %}
+
+{% block content %}
+    <div class="testimonial-text">
+        {{ testimonial|raw }}
+    </div>
+    <div class="testimonial-meta">
+        <div class="name">{{ name }}</div>
+        {% if department %}
+            <div class="department">{{ department }}</div>
+        {% endif %}
+        {% if company %}
+            <div class="company">{{ company }}</div>
+        {% endif %}
+        {% if addRating %}
+            <div class="testimonial-rating">
+                {% for star in rating %}
+                <span class="star{% if star.checked %} checked{% endif %}">{% if star.checked %}&#9733;{% else %}&#9734;{% endif %}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% if addImage and singleSRC %}
+            {{ contao_figure(singleSRC, size) }}
+        {% endif %}
+    </div>
+{% endblock %}
