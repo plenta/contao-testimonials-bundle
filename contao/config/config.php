@@ -10,6 +10,10 @@ declare(strict_types=1);
  * @link          https://github.com/plenta/
  */
 
+use Plenta\ContaoTestimonialsBundle\Model\TestimonialsModel;
+
 $GLOBALS['BE_MOD']['content']['testimonials'] = [
     'tables' => ['tl_testimonials_archive', 'tl_testimonials', 'tl_testimonials_category'],
 ];
+
+$GLOBALS['TL_MODELS'][TestimonialsModel::getTable()] = TestimonialsModel::class;

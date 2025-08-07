@@ -13,8 +13,10 @@ declare(strict_types=1);
 namespace Plenta\ContaoTestimonialsBundle\Helper;
 
 use Contao\CoreBundle\Framework\ContaoFramework;
+use Contao\Model\Collection;
 use Contao\StringUtil;
 use Doctrine\DBAL\Connection;
+use Plenta\ContaoTestimonialsBundle\Model\TestimonialsModel;
 
 class Testimonial
 {
@@ -26,61 +28,36 @@ class Testimonial
 
     public function getTestimonialById(int $id): ?array
     {
-        $testimonial = $this->connection
-            ->createQueryBuilder()
-            ->select('name, company, department, testimonial, rating, addImage, singleSRC')
-            ->from('tl_testimonials')
-            ->where('id=:id')
-            ->andWhere('published=:published')
-            ->setParameter('id', $id)
-            ->setParameter('published', 1)
-            ->executeQuery()
-            ->fetchAssociative()
-        ;
-
-        if (false !== $testimonial) {
-            return $testimonial;
-        }
-
-        return null;
+        return TestimonialsModel::findByPk($id);
     }
 
-    public function getTestimonialsByArchive(int $pid, int $limit, bool $random = false, $categories = ''): ?array
+    public function getTestimonialsByArchive(int $pid, int $limit, bool $random = false, $categories = ''): ?Collection
     {
-        $testimonials = $this->connection
-            ->createQueryBuilder()
-            ->select('name, company, department, testimonial, rating, addImage, singleSRC')
-            ->from('tl_testimonials')
-            ->where('pid=:pid')
-            ->andWhere('published=:published')
-            ->setParameter('pid', $pid)
-            ->setParameter('published', 1)
-        ;
+        $columns = ['pid = ?', 'published = ?'];
+        $values = [$pid, 1];
 
         if (!empty($categories) && \is_array($categoryArr = StringUtil::deserialize($categories))) {
             $criteria = [];
 
             foreach ($categoryArr as $category) {
-                $criteria[] = "categories LIKE '%\"".$category."\"%'";
+                $criteria[] = 'category LIKE CONCAT("%",?,"%")';
+                $values[] = $category;
             }
-            $testimonials->andWhere(implode(' OR ', $criteria));
+
+            $columns[] = '('.implode(' OR ', $criteria).')';
         }
 
-        if (0 !== $limit) {
-            $testimonials->setMaxResults($limit);
+        $options = [];
+
+        if ($limit) {
+            $options['limit'] = $limit;
         }
 
-        if (true === $random) {
-            $testimonials->orderBy('RAND()');
+        if ($random) {
+            $options['order'] = 'RAND()';
         }
 
-        $result = $testimonials->executeQuery()->fetchAllAssociative();
-
-        if (false !== $result) {
-            return $result;
-        }
-
-        return null;
+        return TestimonialsModel::findBy($columns, $values, $options);
     }
 
     public function getRating(int $rating): array

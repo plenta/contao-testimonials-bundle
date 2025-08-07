@@ -1,0 +1,47 @@
+{% extends '@Contao/frontend_module/_base.html.twig' %}
+
+{% block content %}
+    {% if items %}
+        {% for item in items %}
+            <div class="testimonial">
+                {% block image %}
+                    {% if item.image %}
+                        {{ contao_figure(item.image, imgSize) }}
+                    {% endif %}
+                {% endblock %}
+
+                {% block text %}
+                    <div class="testimonial-text">
+                        {{ item.testimonial|raw }}
+                    </div>
+                {% endblock %}
+
+                <div class="testimonial-meta">
+                    {% block name %}
+                        <div class="name">{{ item.name }}</div>
+                    {% endblock %}
+                    {% block department %}
+                        {% if item.department %}
+                            <div class="department">{{ item.department }}</div>
+                        {% endif %}
+                    {% endblock %}
+                    {% block company %}
+                        {% if item.company %}
+                            <div class="company">{{ item.company }}</div>
+                        {% endif %}
+                    {% endblock %}
+                </div>
+
+                {% block rating %}
+                    {% if addRatings %}
+                        <div class="testimonial-rating">
+                            {% for star in item.rating %}
+                                <span class="star{% if star.checked %} checked{% endif %}">{% if star.checked %}&#9733;{% else %}&#9734;{% endif %}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endblock %}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

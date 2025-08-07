@@ -20,7 +20,7 @@ use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-#[AsFrontendModule(type: self::TYPE, category: 'miscellaneous', template: 'mod_plenta_testimonials')]
+#[AsFrontendModule(type: self::TYPE, category: 'miscellaneous')]
 class TestimonialFrontendModuleController extends AbstractFrontendModuleController
 {
     public const TYPE = 'plenta_testimonials';
@@ -47,17 +47,18 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
             foreach ($testimonials as $testimonial) {
                 $testimonialImage = null;
 
-                if (true === (bool) $model->plenta_testimonials_addImages && true === (bool) $testimonial['addImage']) {
-                    $testimonialImage = $testimonial['singleSRC'];
+                if (true === (bool) $model->plenta_testimonials_addImages && true === (bool) $testimonial->addImage) {
+                    $testimonialImage = $testimonial->singleSRC;
                 }
 
                 $items[] = [
-                    'name' => $testimonial['name'],
-                    'company' => $testimonial['company'],
-                    'department' => $testimonial['department'],
-                    'testimonial' => $testimonial['testimonial'],
-                    'rating' => $this->testimonial->getRating((int) $testimonial['rating']),
+                    'name' => $testimonial->name,
+                    'company' => $testimonial->company,
+                    'department' => $testimonial->department,
+                    'testimonial' => $testimonial->testimonial,
+                    'rating' => $this->testimonial->getRating((int) $testimonial->rating),
                     'image' => $testimonialImage,
+                    'model' => $testimonial,
                 ];
             }
         }
