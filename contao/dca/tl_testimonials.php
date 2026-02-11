@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 
 use Contao\DC_Table;
+use Contao\DataContainer;
 
 $GLOBALS['TL_DCA']['tl_testimonials'] = [
     'config' => [
@@ -28,10 +29,16 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
 
     'list' => [
         'sorting' => [
-            'mode' => 4,
-            'fields' => ['identifier'],
-            'panelLayout' => 'filter;limit',
-            'headerFields' => ['title', 'tstamp'],
+            'mode' => DataContainer::MODE_PARENT,
+            'flag' => DataContainer::SORT_INITIAL_LETTERS_DESC,
+            'fields' => [
+                'sorting',
+            ],
+            'panelLayout' => 'sort;filter;search;limit',
+            'headerFields' => [
+                'title',
+                'tstamp',
+            ],
             'child_record_callback' => ['plenta.testimonials.listener.data_container', 'listTestimonials'],
             'child_record_class' => 'no_padding',
         ],
@@ -46,10 +53,12 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'edit' => [
                 'href' => 'act=edit',
                 'icon' => 'edit.svg',
+                'primary' => true,
             ],
             'copy' => [
                 'href' => 'act=paste&amp;mode=copy',
                 'icon' => 'copy.svg',
+                'primary' => true,
             ],
             'cut' => [
                 'href' => 'act=paste&amp;mode=cut',
@@ -63,6 +72,7 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'toggle' => [
                 'href' => 'act=toggle&amp;field=published',
                 'icon' => 'visible.svg',
+                'primary' => true,
             ],
             'show' => [
                 'href' => 'act=show',
@@ -89,25 +99,37 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'sql' => 'int(10) unsigned NOT NULL default 0',
             'relation' => ['type' => 'belongsTo', 'load' => 'lazy'],
         ],
+        'sorting' => [
+            'sorting' => true,
+            'sql' => ['type' => 'integer', 'notnull' => true, 'unsigned' => true, 'default' => 0]
+        ],
         'tstamp' => [
             'sql' => 'int(10) unsigned NOT NULL default 0',
         ],
         'identifier' => [
             'exclude' => true,
-            'flag' => 1,
+            'flag' => DataContainer::SORT_INITIAL_LETTER_ASC,
+            'sorting' => true,
             'inputType' => 'text',
             'eval' => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
             'sql' => "varchar(255) NOT NULL default ''",
         ],
         'name' => [
             'exclude' => true,
-            'flag' => 1,
+            'flag' => DataContainer::SORT_INITIAL_LETTER_ASC,
+            'sorting' => true,
+            'filter' => true,
+            'search' => true,
             'inputType' => 'text',
             'eval' => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'clr w50'],
             'sql' => "varchar(255) NOT NULL default ''",
         ],
         'company' => [
             'exclude' => true,
+            'sorting' => true,
+            'filter' => true,
+            'search' => true,
+            'flag' => DataContainer::SORT_INITIAL_LETTER_ASC,
             'inputType' => 'text',
             'eval' => ['maxlength' => 255, 'tl_class' => 'clr w50'],
             'sql' => "varchar(255) NOT NULL default ''",
@@ -129,6 +151,7 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'exclude' => true,
             'filter' => true,
             'sorting' => true,
+            'flag' => DataContainer::SORT_INITIAL_LETTER_ASC,
             'default' => 0,
             'options' => [0, 1, 2, 3, 4, 5],
             'eval' => ['tl_class' => 'w50'],

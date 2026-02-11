@@ -7,5 +7,5 @@ services:
     plenta.testimonials.listener.data_container:
         class: Plenta\ContaoTestimonialsBundle\EventListener\DataContainer\DataContainerListener
         public: true
-        arguments:
-            - "@database_connection"
+        autowire: true
+        autoconfigure: true

@@ -13,14 +13,15 @@ declare(strict_types=1);
 namespace Plenta\ContaoTestimonialsBundle\EventListener\DataContainer;
 
 use Doctrine\DBAL\Connection;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class DataContainerListener
 {
-    private Connection $connection;
 
-    public function __construct(Connection $connection)
-    {
-        $this->connection = $connection;
+    public function __construct(
+        private Connection $connection,
+        private TranslatorInterface $translator,
+    ) {
     }
 
     /**
@@ -44,6 +45,42 @@ class DataContainerListener
 
     public function listTestimonials(array $arrRow): string
     {
-        return '<div class="tl_content_left">'.$arrRow['identifier'].'</div>';
+        $label = $arrRow['identifier'];
+
+        $details = [];
+
+        if ($arrRow['name']) {
+            $details[] = $this->translator->trans('tl_testimonials.name.0', [], 'contao_tl_testimonials') . ': ' . $arrRow['name'];
+        }
+
+        if ($arrRow['company']) {
+            $details[] = $this->translator->trans('tl_testimonials.company.0', [], 'contao_tl_testimonials') . ': '.  $arrRow['company'];
+        }
+
+        $details[] = $this->translator->trans('tl_testimonials.rating.0', [], 'contao_tl_testimonials') . ': '.$this->generateRatingStarsByNumber((int) $arrRow['rating']);
+
+        if (!empty($details)) {
+            $label .= '<br><span class="tl_gray">';
+            $label .= implode(', ', $details);
+            $label .= '</span>';
+        }
+
+
+        return '<div class="tl_content_left">'.$label.'</div>';
+    }
+
+    public function generateRatingStarsByNumber(int $rating): string
+    {
+        $label = '';
+
+        for ($i = 1; $i <= 5; $i++) {
+            if ($i <= $rating) {
+                $label .= '★';
+            } else {
+                $label .= '☆';
+            }
+        }
+
+        return $label;
     }
 }
