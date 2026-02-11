@@ -15,7 +15,7 @@ $ composer require plenta/contao-testimonials-bundle
 
 ## Welche Version ist die Richtige?
 
-| Contao Version   | PHP Version | Jobs Version |
+| Contao Version   | PHP Version | Contao Testimonials Version |
 |------------------|-------------|--------------|
 | 4.9.\* - 4.13.\* | \>= 7.4     | 1.*          |
 | 4.13.\*, 5.\*    | \>= 8.1     | 2.*          |
