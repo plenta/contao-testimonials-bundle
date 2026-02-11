@@ -45,28 +45,21 @@ class DataContainerListener
 
     public function listTestimonials(array $arrRow): string
     {
-        $label = $arrRow['identifier'];
-
         $details = [];
 
-        if ($arrRow['name']) {
-            $details[] = $this->translator->trans('tl_testimonials.name.0', [], 'contao_tl_testimonials') . ': ' . $arrRow['name'];
+        foreach (['name', 'company'] as $field) {
+            if (!empty($arrRow[$field])) {
+                $details[] = $this->translator->trans('tl_testimonials.'.$field.'.0', [], 'contao_tl_testimonials').': '.$arrRow[$field];
+            }
         }
 
-        if ($arrRow['company']) {
-            $details[] = $this->translator->trans('tl_testimonials.company.0', [], 'contao_tl_testimonials') . ': '.  $arrRow['company'];
-        }
+        $details[] = $this->translator->trans('tl_testimonials.rating.0', [], 'contao_tl_testimonials').': '.$this->generateRatingStarsByNumber((int) $arrRow['rating']);
 
-        $details[] = $this->translator->trans('tl_testimonials.rating.0', [], 'contao_tl_testimonials') . ': '.$this->generateRatingStarsByNumber((int) $arrRow['rating']);
-
-        if (!empty($details)) {
-            $label .= '<br><span class="tl_gray">';
-            $label .= implode(', ', $details);
-            $label .= '</span>';
-        }
-
-
-        return '<div class="tl_content_left">'.$label.'</div>';
+        return sprintf(
+            '<div class="tl_content_left">%s<br><span class="tl_gray">%s</span></div>',
+            $arrRow['identifier'],
+            implode(', ', $details)
+        );
     }
 
     public function generateRatingStarsByNumber(int $rating): string
