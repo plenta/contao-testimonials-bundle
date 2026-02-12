@@ -15,7 +15,7 @@ use Plenta\ContaoTestimonialsBundle\Enum\SortingOption;
 
 $GLOBALS['TL_DCA']['tl_module']['palettes'][TestimonialFrontendModuleController::TYPE] =
     '{title_legend},name,headline,type;
-    {config_legend},plenta_testimonials_archive,plenta_testimonials_random,plenta_testimonials_sorting,plenta_testimonials_limit,plenta_testimonials_categories,imgSize,
+    {config_legend},plenta_testimonials_archive,plenta_testimonials_sorting,plenta_testimonials_limit,plenta_testimonials_categories,imgSize,
     plenta_testimonials_addImages,plenta_testimonials_addRatings;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
@@ -38,15 +38,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_archive'] = [
     ],
 ];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_random'] = [
-    'exclude' => true,
-    'inputType' => 'checkbox',
-    'eval' => [
-        'tl_class' => 'w50 cbx m12',
-    ],
-    'sql' => "char(1) NOT NULL default ''",
-];
-
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_sorting'] = [
     'exclude' => true,
@@ -58,7 +49,14 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_sorting'] = [
         'tl_class' => 'w50 wizard',
     ],
     'options_callback' => ['plenta.testimonials.listener.data_container', 'onPlentaTestimonialsSortingOption'],
-    'sql' => ['type' => 'string', 'length' => 32, 'default' => SortingOption::getDefault()->name],
+    'sql' => [
+        'type' => 'string',
+        'length' => 32,
+        'default' => SortingOption::getDefault()->name,
+        'platformOptions' => [
+            'collation' => 'ascii_bin',
+        ],
+    ],
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['plenta_testimonials_limit'] = [

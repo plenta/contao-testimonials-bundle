@@ -13,3 +13,7 @@ services:
             - '@database_connection'
         tags:
             - { name: contao.migration, priority: 0 }
+
+    Plenta\ContaoTestimonialsBundle\Migration\RandomSortingMigration:
+        tags:
+            - { name: contao.migration, priority: 0 }
