@@ -25,6 +25,9 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
                 'pid' => 'index',
             ],
         ],
+        'onsubmit_callback' => [
+            ['plenta.testimonials.listener.data_container', 'onPlentaTestimonialsSubmit'],
+        ]
     ],
 
     'list' => [
@@ -83,7 +86,11 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
 
     'palettes' => [
         '__selector__' => ['addImage'],
-        'default' => '{testimonial_legend},identifier,name,company,department,testimonial,rating,categories;{image_legend},addImage;{publish_legend},published',
+        'default' => '
+            {testimonial_legend},identifier,name,company,department,testimonial,rating,categories;
+            {image_legend},addImage;
+            {publish_legend},published,publishedAt
+        ',
     ],
 
     'subpalettes' => [
@@ -181,8 +188,30 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'toggle' => true,
             'flag' => 1,
             'inputType' => 'checkbox',
-            'eval' => ['doNotCopy' => true],
+            'eval' => [
+                'doNotCopy' => true,
+                'tl_class' => 'w50',
+            ],
             'sql' => "char(1) NOT NULL default ''",
+        ],
+        'publishedAt' => [
+            'inputType' => 'text',
+            'exclude' => true,
+            'eval' => [
+                'doNotCopy' => true,
+                'rgxp' => 'datim',
+                'datepicker' => true,
+                'tl_class' => 'w50 wizard',
+            ],
+            'sql' => [
+                'type' => 'string',
+                'notnull' => true,
+                'default' => '',
+                'platformOptions' => [
+                    'collation' => 'ascii_bin',
+                ],
+                'length' => 10,
+            ]
         ],
         'categories' => [
             'exclude' => true,

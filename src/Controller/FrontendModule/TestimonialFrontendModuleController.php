@@ -25,11 +25,10 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
 {
     public const TYPE = 'plenta_testimonials';
 
-    private Testimonial $testimonial;
 
-    public function __construct(Testimonial $testimonial)
-    {
-        $this->testimonial = $testimonial;
+    public function __construct(
+        private readonly Testimonial $testimonial
+    ) {
     }
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
@@ -39,7 +38,7 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
         $testimonials = $this->testimonial->getTestimonialsByArchive(
             (int) $model->plenta_testimonials_archive,
             (int) $model->plenta_testimonials_limit,
-            (bool) $model->plenta_testimonials_random,
+            $model->plenta_testimonials_sorting,
             $model->plenta_testimonials_categories
         );
 

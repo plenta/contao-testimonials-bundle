@@ -16,23 +16,31 @@ use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\Model\Collection;
 use Contao\StringUtil;
 use Doctrine\DBAL\Connection;
+use Plenta\ContaoTestimonialsBundle\Enum\SortingOption;
 use Plenta\ContaoTestimonialsBundle\Model\TestimonialsModel;
 
 class Testimonial
 {
+
     public function __construct(
         protected ContaoFramework $framework,
         protected Connection $connection
     ) {
     }
 
-    public function getTestimonialById(int $id): ?array
+    public function getTestimonialById(int $id)
     {
         return TestimonialsModel::findByPk($id);
     }
 
-    public function getTestimonialsByArchive(int $pid, int $limit, bool $random = false, $categories = ''): ?Collection
+    public function getTestimonialsByArchive(int $pid, int $limit, ?string $sorting = null, $categories = ''): ?Collection
     {
+        $order = null;
+
+        if (null !== $sorting) {
+            $order = SortingOption::normalizeByName($sorting)->value;
+        }
+
         $columns = ['pid = ?', 'published = ?'];
         $values = [$pid, 1];
 
@@ -53,8 +61,8 @@ class Testimonial
             $options['limit'] = $limit;
         }
 
-        if ($random) {
-            $options['order'] = 'RAND()';
+        if (null !== $order) {
+            $options['order'] = $order;
         }
 
         return TestimonialsModel::findBy($columns, $values, $options);

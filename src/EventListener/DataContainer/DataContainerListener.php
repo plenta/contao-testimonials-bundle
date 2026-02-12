@@ -13,7 +13,9 @@ declare(strict_types=1);
 namespace Plenta\ContaoTestimonialsBundle\EventListener\DataContainer;
 
 use Doctrine\DBAL\Connection;
+use Plenta\ContaoTestimonialsBundle\Enum\SortingOption;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Contao\DataContainer;
 
 class DataContainerListener
 {
@@ -75,5 +77,37 @@ class DataContainerListener
         }
 
         return $label;
+    }
+
+    public function onPlentaTestimonialsSortingOption(?DataContainer $dc): array
+    {
+        $options = [];
+
+        if (null === $dc) {
+            return $options;
+        }
+
+        foreach (SortingOption::cases() as $case) {
+            $options[$case->name] = $case->label()->trans($this->translator);
+        }
+
+        return $options;
+    }
+
+    public function onPlentaTestimonialsSubmit(DataContainer $dc): void
+    {
+        if (!$dc->id) {
+            return;
+        }
+
+        $activeRecord = $dc->getActiveRecord();
+
+        if ($activeRecord['published'] && empty($activeRecord['publishedAt'])) {
+            $this->connection->update(
+                'tl_testimonials',
+                ['publishedAt' => (string) time()],
+                ['id' => $dc->id]
+            );
+        }
     }
 }

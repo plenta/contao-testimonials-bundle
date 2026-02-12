@@ -18,6 +18,33 @@
                 <source>single</source>
                 <target>einzeln</target>
             </trans-unit>
+            <trans-unit id="TESTIMONIAL.sorting.sortingAsc">
+                <target>nach Sortierung im Backend (aufsteigend)</target>
+            </trans-unit>
+            <trans-unit id="TESTIMONIAL.sorting.sortingDesc">
+                <target>nach Sortierung im Backend (absteigend)</target>
+            </trans-unit>
+            <trans-unit id="TESTIMONIAL.sorting.random">
+                <target>zufällig</target>
+            </trans-unit>
+            <trans-unit id="TESTIMONIAL.sorting.indexAsc">
+                <target>Id (aufsteigend)</target>
+            </trans-unit>
+            <trans-unit id="TESTIMONIAL.sorting.indexDesc">
+                <target>Id (absteigend)</target>
+            </trans-unit>
+            <trans-unit id="TESTIMONIAL.sorting.tstampAsc">
+                <target>Bearbeitungsdatum (aufsteigend)</target>
+            </trans-unit>
+            <trans-unit id="TESTIMONIAL.sorting.tstampDesc">
+                <target>Bearbeitungsdatum (absteigend)</target>
+            </trans-unit>
+            <trans-unit id="TESTIMONIAL.sorting.publishedAtAsc">
+                <target>Veröffentlichungsdatum (aufsteigend)</target>
+            </trans-unit>
+            <trans-unit id="TESTIMONIAL.sorting.publishedAtDesc">
+                <target>Veröffentlichungsdatum (absteigend)</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

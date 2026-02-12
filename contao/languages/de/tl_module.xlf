@@ -38,6 +38,12 @@
             <trans-unit id="tl_module.plenta_testimonials_addRatings.1">
                 <target>Die Sternebewertung der Testimonials ausgeben.</target>
             </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_sorting.0">
+                <target>Sortierung</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_sorting.1">
+                <target>Wie soll die Listenansicht sortiert werden?</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

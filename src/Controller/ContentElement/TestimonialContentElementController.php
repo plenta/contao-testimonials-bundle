@@ -17,6 +17,7 @@ use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\Template;
 use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
+use Plenta\ContaoTestimonialsBundle\Enum\SortingOption;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -25,8 +26,9 @@ class TestimonialContentElementController extends AbstractContentElementControll
 {
     public const TYPE = 'plenta_testimonial';
 
-    public function __construct(protected Testimonial $testimonial)
-    {
+    public function __construct(
+        protected Testimonial $testimonial
+    ) {
     }
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
@@ -37,7 +39,7 @@ class TestimonialContentElementController extends AbstractContentElementControll
             $testimonial = $this->testimonial->getTestimonialsByArchive(
                 (int) $model->testimonial_archive,
                 1,
-                true,
+                SortingOption::random->name,
                 $model->plenta_testimonials_categories
             )[0] ?? null;
         }
