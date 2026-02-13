@@ -190,7 +190,7 @@ $GLOBALS['TL_DCA']['tl_testimonials'] = [
             'inputType' => 'checkbox',
             'eval' => [
                 'doNotCopy' => true,
-                'tl_class' => 'w50',
+                'tl_class' => 'w50 m12',
             ],
             'sql' => "char(1) NOT NULL default ''",
         ],
