@@ -15,7 +15,7 @@ namespace Plenta\ContaoTestimonialsBundle\Controller\ContentElement;
 use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
-use Contao\Template;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
 use Plenta\ContaoTestimonialsBundle\Enum\SortingOption;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class TestimonialContentElementController extends AbstractContentElementControll
     ) {
     }
 
-    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
+    protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
         if ('single' === (string) $model->testimonial_source) {
             $testimonial = $this->testimonial->getTestimonialById((int) $model->testimonialId);
@@ -45,23 +45,23 @@ class TestimonialContentElementController extends AbstractContentElementControll
         }
 
         if (null !== $testimonial) {
-            $template->name = $testimonial->name;
-            $template->company = $testimonial->company;
-            $template->department = $testimonial->department;
-            $template->testimonial = $testimonial->testimonial;
-            $template->rating = $this->testimonial->getRating((int) $testimonial->rating);
+            $template->set('name', $testimonial->name);
+            $template->set('company', $testimonial->company);
+            $template->set('department', $testimonial->department);
+            $template->set('testimonial', $testimonial->testimonial);
+            $template->set('rating', $this->testimonial->getRating((int) $testimonial->rating));
         }
 
-        $template->addImage = false;
+        $template->set('addImage', false);
 
         if (true === (bool) $model->testimonial_addImages && $testimonial->addImage && $testimonial->singleSRC) {
-            $template->addImage = true;
-            $template->singleSRC = $testimonial->singleSRC;
+            $template->set('addImage', true);
+            $template->set('singleSRC', $testimonial->singleSRC);
         }
 
-        $template->model = $testimonial;
-
-        $template->addRating = $model->testimonial_addRatings;
+        $template->set('model', $testimonial);
+        $template->set('size', $model->size);
+        $template->set('addRating', $model->testimonial_addRatings);
 
         return $template->getResponse();
     }

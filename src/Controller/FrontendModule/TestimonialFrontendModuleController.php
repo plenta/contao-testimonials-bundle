@@ -15,10 +15,10 @@ namespace Plenta\ContaoTestimonialsBundle\Controller\FrontendModule;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
 use Contao\ModuleModel;
-use Contao\Template;
 use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 
 #[AsFrontendModule(type: self::TYPE, category: 'miscellaneous')]
 class TestimonialFrontendModuleController extends AbstractFrontendModuleController
@@ -31,7 +31,7 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
     ) {
     }
 
-    protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
+    protected function getResponse(FragmentTemplate $template, ModuleModel $model, Request $request): Response
     {
         $items = [];
 
@@ -62,8 +62,9 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
             }
         }
 
-        $template->addRatings = $model->plenta_testimonials_addRatings;
-        $template->items = $items;
+        $template->set('imgSize', $model->imgSize);
+        $template->set('addRatings', $model->plenta_testimonials_addRatings);
+        $template->set('items', $items);
 
         return $template->getResponse();
     }
