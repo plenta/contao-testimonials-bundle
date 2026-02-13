@@ -41,38 +41,8 @@ $GLOBALS['TL_DCA']['tl_testimonials_archive'] = [
         'global_operations' => [
             'categories' => [
                 'href' => 'table=tl_testimonials_category',
-                'class' => 'header_store',
-            ],
-            'all' => [
-                'href' => 'act=select',
-                'class' => 'header_edit_all',
-                'attributes' => 'onclick="Backend.getScrollOffset()" accesskey="e"',
-            ],
-        ],
-        'operations' => [
-            'edit' => [
-                'href' => 'table=tl_testimonials',
-                'icon' => 'edit.svg',
-            ],
-            'editheader' => [
-                'href' => 'act=edit',
-                'icon' => 'header.svg',
-                'button_callback' => ['tl_testimonials_archive', 'editHeader'],
-            ],
-            'copy' => [
-                'href' => 'act=copy',
-                'icon' => 'copy.svg',
-                'button_callback' => ['tl_testimonials_archive', 'copyArchive'],
-            ],
-            'delete' => [
-                'href' => 'act=delete',
-                'icon' => 'delete.svg',
-                'attributes' => 'onclick="if(!confirm(\''.($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null).'\'))return false;Backend.getScrollOffset()"',
-                'button_callback' => ['tl_testimonials_archive', 'deleteArchive'],
-            ],
-            'show' => [
-                'href' => 'act=show',
-                'icon' => 'show.svg',
+                'class' => 'header_icon plenta_testimonials_header_icon_folder',
+                'primary' => true,
             ],
         ],
     ],

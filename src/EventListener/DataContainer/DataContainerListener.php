@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Plenta\ContaoTestimonialsBundle\EventListener\DataContainer;
 
+use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Doctrine\DBAL\Connection;
 use Plenta\ContaoTestimonialsBundle\Enum\SortingOption;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -109,5 +110,11 @@ class DataContainerListener
                 ['id' => $dc->id]
             );
         }
+    }
+
+    #[AsCallback(table: 'tl_testimonials_archive', target: 'config.onload')]
+    public function loadCSS(): void
+    {
+        $GLOBALS['TL_CSS'][] = 'bundles/plentacontaotestimonials/css/backend-archive.css';
     }
 }
