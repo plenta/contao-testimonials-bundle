@@ -9,13 +9,13 @@
                 <source>Display mode</source>
             </trans-unit>
             <trans-unit id="tl_content.testimonial_source.1">
-                <source>Please select.</source>
+                <source>Please select. Choosing "random" will disable the HTTP cache for the entire page.</source>
             </trans-unit>
             <trans-unit id="tl_content.testimonial_archive.0">
                 <source>Testimonials archive</source>
             </trans-unit>
             <trans-unit id="tl_content.testimonial_archive.1">
-                <source>Please select an archive from which a testimonial is randomly displayed.</source>
+                <source>Please select an archive from which a testimonial is randomly displayed. </source>
             </trans-unit>
             <trans-unit id="tl_content.testimonialId.0">
                 <source>Testimonial</source>

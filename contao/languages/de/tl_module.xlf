@@ -14,12 +14,6 @@
             <trans-unit id="tl_module.plenta_testimonials_limit.1">
                 <target>Hier können Sie die Gesamtzahl der Testimonials begrenzen. Geben Sie 0 ein, um alle anzuzeigen.</target>
             </trans-unit>
-            <trans-unit id="tl_module.plenta_testimonials_random.0">
-                <target>Zufällige Ausgabe aktivieren</target>
-            </trans-unit>
-            <trans-unit id="tl_module.plenta_testimonials_random.1">
-                <target>Ausgabe der Testimonials in zufälliger Reihenfolge.</target>
-            </trans-unit>
             <trans-unit id="tl_module.plenta_testimonials_categories.0">
                 <target>Kategorien</target>
             </trans-unit>
@@ -42,7 +36,7 @@
                 <target>Sortierung</target>
             </trans-unit>
             <trans-unit id="tl_module.plenta_testimonials_sorting.1">
-                <target>Wie soll die Listenansicht sortiert werden?</target>
+                <target>Wie soll die Liste der Testimonials sortiert werden? Bei der Auswahl „zufällig“ wird der HTTP-Cache der gesamten Seite deaktiviert.</target>
             </trans-unit>
         </body>
     </file>

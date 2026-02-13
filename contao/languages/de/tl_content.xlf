@@ -9,7 +9,7 @@
                 <target>Anzeigemodus</target>
             </trans-unit>
             <trans-unit id="tl_content.testimonial_source.1">
-                <target>Bitte wählen.</target>
+                <target>Bitte wählen. Bei der Auswahl „zufällig“ wird der HTTP-Cache der gesamten Seite deaktiviert.</target>
             </trans-unit>
             <trans-unit id="tl_content.testimonial_archive.0">
                 <target>Testimonials-Archiv</target>

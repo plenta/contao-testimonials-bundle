@@ -42,7 +42,7 @@
                 <target>Sorting</target>
             </trans-unit>
             <trans-unit id="tl_module.plenta_testimonials_sorting.1">
-                <target>How should the list view be sorted?</target>
+                <target>How should the list of testimonials be sorted? Choosing "random" will disable the HTTP cache for the entire page.</target>
             </trans-unit>
         </body>
     </file>

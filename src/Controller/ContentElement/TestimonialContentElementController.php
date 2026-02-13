@@ -35,6 +35,7 @@ class TestimonialContentElementController extends AbstractContentElementControll
     {
         if ('single' === (string) $model->testimonial_source) {
             $testimonial = $this->testimonial->getTestimonialById((int) $model->testimonialId);
+            $this->tagResponse($testimonial);
         } else {
             $testimonial = $this->testimonial->getTestimonialsByArchive(
                 (int) $model->testimonial_archive,
@@ -63,6 +64,12 @@ class TestimonialContentElementController extends AbstractContentElementControll
         $template->set('size', $model->size);
         $template->set('addRating', $model->testimonial_addRatings);
 
-        return $template->getResponse();
+        $response = $template->getResponse();
+
+        if ('random' === (string) $model->testimonial_source) {
+            $response->setMaxAge(time());
+        }
+
+        return $response;
     }
 }

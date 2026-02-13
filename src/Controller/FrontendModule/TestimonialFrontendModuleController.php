@@ -15,6 +15,7 @@ namespace Plenta\ContaoTestimonialsBundle\Controller\FrontendModule;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
 use Contao\ModuleModel;
+use Plenta\ContaoTestimonialsBundle\Enum\SortingOption;
 use Plenta\ContaoTestimonialsBundle\Helper\Testimonial;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -42,6 +43,8 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
             $model->plenta_testimonials_categories
         );
 
+        $this->tagResponse($testimonials);
+
         if (null !== $testimonials) {
             foreach ($testimonials as $testimonial) {
                 $testimonialImage = null;
@@ -66,6 +69,12 @@ class TestimonialFrontendModuleController extends AbstractFrontendModuleControll
         $template->set('addRatings', $model->plenta_testimonials_addRatings);
         $template->set('items', $items);
 
-        return $template->getResponse();
+        $response = $template->getResponse();
+
+        if (SortingOption::random->name === $model->plenta_testimonials_sorting) {
+            $response->setMaxAge(time());
+        }
+
+        return $response;
     }
 }
