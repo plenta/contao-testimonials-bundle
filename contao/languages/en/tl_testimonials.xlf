@@ -65,6 +65,18 @@
             <trans-unit id="tl_testimonials.publish_legend">
                 <source>Publish settings</source>
             </trans-unit>
+            <trans-unit id="tl_testimonials.categories.0">
+                <target>Categories</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.categories.1">
+                <target>Please choose categories from the list.</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.publishedAt.0">
+                <target>Publication date</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.publishedAt.1">
+                <target>Is automatically filled in when publishing for the first time if the field is empty. The date can also be entered manually.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

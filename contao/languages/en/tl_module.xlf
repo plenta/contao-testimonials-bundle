@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file source-language="en">
+        <body>
+            <trans-unit id="tl_module.plenta_testimonials_archive.0">
+                <target>Testimonials archive</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_archive.1">
+                <target>Please select the archive from which the testimonials should be displayed.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_limit.0">
+                <target>Total number of testimonials</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_limit.1">
+                <target>Here you can limit the total number of testimonials. Enter 0 to display all.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_random.0">
+                <target>Enable random output</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_random.1">
+                <target>Display the testimonials in random order.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_categories.0">
+                <target>Categories</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_categories.1">
+                <target>Please select the categories from which the testimonials should be displayed.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_addImages.0">
+                <target>Display images</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_addImages.1">
+                <target>Add an image to the testimonials.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_addRatings.0">
+                <target>Display star rating</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_addRatings.1">
+                <target>Display the star rating of the testimonials.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_sorting.0">
+                <target>Sorting</target>
+            </trans-unit>
+            <trans-unit id="tl_module.plenta_testimonials_sorting.1">
+                <target>How should the list view be sorted?</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

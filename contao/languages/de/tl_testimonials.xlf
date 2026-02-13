@@ -94,6 +94,12 @@
                 <source>Please choose categories from the list.</source>
                 <target>Bitte wählen Sie Kategorien aus der Liste aus.</target>
             </trans-unit>
+            <trans-unit id="tl_testimonials.publishedAt.0">
+                <target>Veröffentlichungsdatum</target>
+            </trans-unit>
+            <trans-unit id="tl_testimonials.publishedAt.1">
+                <target>Wird beim ersten Veröffentlichen automatisch ausgefüllt, sofern das Feld leer ist. Das Datum kann auch manuell eingetragen werden.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
