@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Testimonials for Contao Open Source CMS
  *
- * @copyright     Copyright (c) 2022-2023, Plenta.io
+ * @copyright     Copyright (c) 2022-2026, Plenta.io
  * @author        Plenta.io <https://plenta.io>
  * @link          https://github.com/plenta/
  */
@@ -48,7 +48,7 @@ class Testimonial
             $criteria = [];
 
             foreach ($categoryArr as $category) {
-                $criteria[] = 'category LIKE CONCAT("%",?,"%")';
+                $criteria[] = 'categories LIKE CONCAT("%",?,"%")';
                 $values[] = $category;
             }
 
